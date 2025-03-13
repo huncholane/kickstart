@@ -32,15 +32,15 @@ pub fn insertion_sort(arr: &mut Vec<i32>) {
     }
 }
 
-pub fn mergesort(arr: &mut Vec<i32>, start: usize, end: usize) {
+pub fn mergesort_helper(arr: &mut Vec<i32>, start: usize, end: usize) {
     // Leaf worker job
     if start == end {
         return;
     }
     // Internal node manager job
     let mid = (start + end) / 2;
-    mergesort(arr, start, mid);
-    mergesort(arr, mid + 1, end);
+    mergesort_helper(arr, start, mid);
+    mergesort_helper(arr, mid + 1, end);
     let (mut i, mut j) = (start, mid + 1);
     let len = end - start + 1;
     let mut aux: Vec<i32> = Vec::with_capacity(len);
@@ -66,4 +66,9 @@ pub fn mergesort(arr: &mut Vec<i32>, start: usize, end: usize) {
     for (i, num) in aux.iter().enumerate() {
         arr[start + i] = *num;
     }
+}
+
+pub fn mergesort(arr: &mut Vec<i32>) {
+    let len = arr.len();
+    mergesort_helper(arr, 0, len - 1);
 }

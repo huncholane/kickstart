@@ -7,8 +7,7 @@ fn main() {
     let mut arr: Vec<i32> = (0..n).map(|_| rand::random_range(0..n)).collect();
 
     let start = Instant::now();
-    let len = arr.len();
-    mergesort(&mut arr, 0, len - 1);
+    mergesort(&mut arr);
     let dur = Instant::now() - start;
     println!("{:?}", dur);
     println!("{:?}", &arr[..5]);
