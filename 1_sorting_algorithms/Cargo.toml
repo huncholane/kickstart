@@ -1,0 +1,8 @@
+[package]
+name = "sorting_algos"
+version = "0.1.0"
+edition = "2021"
+default-run = "sorting_algos"
+
+[dependencies]
+rand = "0.9.0"

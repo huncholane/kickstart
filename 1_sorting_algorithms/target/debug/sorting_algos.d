@@ -1,0 +1,1 @@
+/home/huncho/code/kickstart/1_sorting_algorithms/target/debug/sorting_algos: /home/huncho/code/kickstart/1_sorting_algorithms/src/bin/mod.rs /home/huncho/code/kickstart/1_sorting_algorithms/src/bin/selection_sort.rs /home/huncho/code/kickstart/1_sorting_algorithms/src/lib.rs /home/huncho/code/kickstart/1_sorting_algorithms/src/main.rs
