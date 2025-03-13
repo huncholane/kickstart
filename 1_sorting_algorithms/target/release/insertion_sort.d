@@ -1,1 +1,0 @@
-/home/huncho/code/kickstart/1_sorting_algorithms/target/release/insertion_sort: /home/huncho/code/kickstart/1_sorting_algorithms/src/bin/insertion_sort.rs /home/huncho/code/kickstart/1_sorting_algorithms/src/lib.rs
