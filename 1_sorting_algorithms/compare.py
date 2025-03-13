@@ -1,11 +1,17 @@
 import random
 import time
-from bubble_sort import bubble_sort
-from insertion_sort import insertion_sort
-from selection_sort import selection_sort
+from bubblesort import bubble_sort
+from insertionsort import insertion_sort
+from mergesort import mergesort
+from selectionsort import selection_sort
 
 
-algos = [bubble_sort, insertion_sort, selection_sort]
+algos = [
+    # bubble_sort,
+    # selection_sort,
+    # insertion_sort,
+    mergesort,
+]
 
 
 n = 50000
