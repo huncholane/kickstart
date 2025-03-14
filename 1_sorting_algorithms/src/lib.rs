@@ -1,3 +1,5 @@
+use std::time::Instant;
+
 pub mod algos;
 
 pub fn selection_sort(arr: &mut Vec<i32>) {
@@ -73,4 +75,27 @@ pub fn mergesort_helper(arr: &mut Vec<i32>, start: usize, end: usize) {
 pub fn mergesort(arr: &mut Vec<i32>) {
     let len = arr.len();
     mergesort_helper(arr, 0, len - 1);
+}
+
+pub fn run_algo<F>(f: F, arr: &Vec<i32>)
+where
+    F: Fn(&mut Vec<i32>),
+{
+    let mut arr = arr.clone();
+    let start = Instant::now();
+    f(&mut arr);
+    let dur = Instant::now() - start;
+    println!("{} {:?}", std::any::type_name::<F>(), dur);
+}
+
+pub fn debug_algo<F>(f: F, n: i32)
+where
+    F: Fn(&mut Vec<i32>),
+{
+    let mut arr: Vec<i32> = (0..n).map(|_| rand::random_range(0..n)).collect();
+    let start = std::time::Instant::now();
+    f(&mut arr);
+    let dur = std::time::Instant::now() - start;
+    println!("{} {:?}", std::any::type_name::<F>(), dur);
+    println!("{:?}", &arr[..5]);
 }

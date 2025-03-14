@@ -1,6 +1,7 @@
 import random
 import time
 from bubblesort import bubble_sort
+from heapsort import heapsort
 from insertionsort import insertion_sort
 from lumoto_quicksort import lumoto_quicksort
 from mergesort import mergesort
@@ -15,6 +16,7 @@ algos = [
     mergesort,
     lumoto_quicksort,
     hoare_quicksort,
+    heapsort,
 ]
 
 
