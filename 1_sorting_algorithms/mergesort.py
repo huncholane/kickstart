@@ -32,11 +32,12 @@ def mergesort_helper(arr, start, end):
 
 
 def mergesort(arr):
+    """O(nlogn) very fast but requires extra memory"""
     mergesort_helper(arr, 0, len(arr) - 1)
 
 
 if __name__ == "__main__":
-    n = 50000
+    n = 50000000
     arr = [random.randint(0, n) for i in range(n)]
 
     start = time.time()

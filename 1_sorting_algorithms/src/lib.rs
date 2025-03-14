@@ -1,3 +1,5 @@
+pub mod algos;
+
 pub fn selection_sort(arr: &mut Vec<i32>) {
     for i in 0..arr.len() {
         let mut minind = i;

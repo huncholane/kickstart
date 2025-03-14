@@ -2,7 +2,9 @@ import random
 import time
 from bubblesort import bubble_sort
 from insertionsort import insertion_sort
+from lumoto_quicksort import lumoto_quicksort
 from mergesort import mergesort
+from hoare_quicksort import hoare_quicksort
 from selectionsort import selection_sort
 
 
@@ -11,6 +13,8 @@ algos = [
     # selection_sort,
     # insertion_sort,
     mergesort,
+    lumoto_quicksort,
+    hoare_quicksort,
 ]
 
 
