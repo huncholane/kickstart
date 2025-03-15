@@ -19,7 +19,7 @@ use lumoto_quicksort::lumoto_quicksort;
 use mergesort::mergesort;
 use selectionsort::selectionsort;
 use serde::Serialize;
-use strum_macros::{EnumIter, EnumProperty, EnumString};
+use strum_macros::EnumIter;
 
 fn sort(arr: &mut Vec<i32>) {
     arr.sort();
