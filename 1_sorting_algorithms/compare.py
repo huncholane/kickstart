@@ -7,6 +7,7 @@ from insertionsort import insertion_sort
 from lumoto_quicksort import lumoto_quicksort
 from mergesort import mergesort
 from hoare_quicksort import hoare_quicksort
+from radixsort import radixsort
 from selectionsort import selection_sort
 
 
@@ -26,11 +27,12 @@ algos = [
     timsort,
     # insertion_sort,
     countingsort,
+    radixsort,
 ]
 
 
 n = 50000
-base_arr = [random.randint(0, 100) for i in range(n)]
+base_arr = [random.randint(0, 1200) for i in range(n)]
 
 for algo in algos:
     arr = base_arr.copy()
