@@ -95,6 +95,7 @@ impl SortingAlgo {
 
     pub fn debug(&self, arr: &mut Vec<i32>) {
         let f = self.algo();
+        println!("{:?}\n", &arr);
         let start = std::time::Instant::now();
         f(arr);
         let dur = std::time::Instant::now() - start;
