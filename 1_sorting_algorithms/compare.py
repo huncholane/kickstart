@@ -1,5 +1,8 @@
 import random
 import time
+
+from yaspin import yaspin
+from yaspin.spinners import Spinners
 from bubblesort import bubble_sort
 from countingsort import countingsort
 from heapsort import heapsort
@@ -31,11 +34,13 @@ algos = [
 ]
 
 
-n = 50000
-base_arr = [random.randint(0, 1200) for i in range(n)]
+n = 500000
+with yaspin(Spinners.clock, text="Generating numbers"):
+    base_arr = [random.randint(0, 12000) for i in range(n)]
 
 for algo in algos:
-    arr = base_arr.copy()
-    start = time.time()
-    algo(arr)
+    with yaspin(Spinners.aesthetic, text=f"Running {algo.__name__}") as sp:
+        arr = base_arr.copy()
+        start = time.time()
+        algo(arr)
     print(f"{algo.__name__}: {time.time()-start:.7f} seconds")

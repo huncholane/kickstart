@@ -5,6 +5,7 @@ mod hoare_quicksort;
 mod insertionsort;
 mod lumoto_quicksort;
 mod mergesort;
+mod radixsort;
 mod selectionsort;
 
 use std::{fmt, time::Duration};
@@ -17,6 +18,7 @@ use indicatif::{ProgressBar, ProgressStyle};
 use insertionsort::insertion_sort;
 use lumoto_quicksort::lumoto_quicksort;
 use mergesort::mergesort;
+use radixsort::radixsort;
 use selectionsort::selectionsort;
 use serde::Serialize;
 use strum_macros::EnumIter;
@@ -42,6 +44,7 @@ pub enum SortingAlgo {
     Insertion,
     Stable,
     Unstable,
+    Radix,
 }
 
 impl fmt::Display for SortingAlgo {
@@ -67,6 +70,7 @@ impl SortingAlgo {
             Self::Insertion => insertion_sort,
             Self::Stable => sort,
             Self::Unstable => sort_unstable,
+            Self::Radix => radixsort,
         }
     }
 
