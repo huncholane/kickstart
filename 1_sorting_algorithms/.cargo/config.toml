@@ -8,3 +8,9 @@
 COUNTING="ON"
 STABLE="ON"
 # SELECTION="ON"
+DEFAULT_TEST_N="50000"
+DEFAULT_DEBUG_N="5"
+
+[alias]
+r = "run -- "
+rr = "run --release -- "
