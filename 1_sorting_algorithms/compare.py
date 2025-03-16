@@ -34,9 +34,9 @@ algos = [
 ]
 
 
-n = 500000
+n = 5000000
 with yaspin(Spinners.clock, text="Generating numbers"):
-    base_arr = [random.randint(0, 12000) for i in range(n)]
+    base_arr = [random.randint(0, 1200000) for i in range(n)]
 
 for algo in algos:
     with yaspin(Spinners.aesthetic, text=f"Running {algo.__name__}") as sp:

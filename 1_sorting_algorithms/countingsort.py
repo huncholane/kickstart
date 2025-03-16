@@ -3,30 +3,52 @@ import time
 
 
 def countingsort(arr):
-    # Initialize aux
-    l = arr[0]
-    r = arr[0]
-    for i in range(len(arr)):
-        if arr[i] < l:
-            l = arr[i]
-        elif arr[i] > r:
-            r = arr[i]
-    k = r - l
+    # init the array
+    low = arr[0]
+    high = arr[0]
+    n = len(arr)
+    for i in range(n):
+        if arr[i] < low:
+            low = arr[i]
+        if arr[i] > high:
+            high = arr[i]
+
+    # make array start from 0
+    for i in range(n):
+        arr[i] -= low
+    k = high - low
     aux = [0] * (k + 1)
-    for num in arr:
-        aux[num - l] += 1
-    # Copy aux into arr
-    i = 0
-    for num in range(k + 1):
-        while aux[num] > 0:
-            arr[i] = num - l
-            i += 1
-            aux[num] -= 1
+
+    # init the auxilary count array
+    for i in range(n):
+        aux[arr[i]] += 1
+
+    # cummulate the sums to index correctly
+    for i in range(1, k + 1):
+        aux[i] += aux[i - 1]
+
+    # init output aux
+    output = [0] * n
+
+    # put into place in reverse to keep original order
+    i = n - 1
+    while i >= 0:
+        output[aux[arr[i]] - 1] = arr[i]
+        aux[arr[i]] -= 1
+        i -= 1
+
+    # copy output into original array
+    arr[:] = output[:]
+
+    # fix the array back to original values
+    for i in range(n):
+        arr[i] += low
 
 
 if __name__ == "__main__":
-    n = 5
-    arr = [random.randint(0, 5) for i in range(n)]
+    n = 10
+    arr = [random.randint(-10, n) for i in range(n)]
+    print(arr)
 
     start = time.time()
     countingsort(arr)
