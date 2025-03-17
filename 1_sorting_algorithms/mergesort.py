@@ -2,38 +2,33 @@ import random
 import time
 
 
-def mergesort_helper(arr, start, end):
-    # Leaf node
-    if start == end:
+def helper(arr, l, r):
+    print(l, r)
+    if l == r:
         return
-    # Internal node worker
-    mid = int((start + end) / 2)
-    mergesort_helper(arr, start, mid)
-    mergesort_helper(arr, mid + 1, end)
-    i, j = start, mid + 1
+    mid = (r - l) // 2
+    helper(arr, l, mid)
+    helper(arr, mid + 1, r)
     aux = []
-    while i <= mid and j <= end:
-        if arr[j] <= arr[i]:
-            aux.append(arr[j])
-            j += 1
-        else:
+    i, j = l, mid + 1
+    while i <= mid and j <= r:
+        if arr[i] <= arr[j]:
             aux.append(arr[i])
             i += 1
-    # Gather phase
+        else:
+            aux.append(arr[j])
+            j += 1
     while i <= mid:
         aux.append(arr[i])
         i += 1
-    while j <= end:
+    while j <= mid:
         aux.append(arr[j])
         j += 1
-    # Copy phase
-    for i, num in enumerate(aux):
-        arr[start + i] = num
+    arr[l:r] = aux[:]
 
 
 def mergesort(arr):
-    """O(nlogn) very fast but requires extra memory"""
-    mergesort_helper(arr, 0, len(arr) - 1)
+    helper(arr, 0, len(arr) - 1)
 
 
 if __name__ == "__main__":
