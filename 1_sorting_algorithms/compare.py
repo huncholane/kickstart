@@ -23,18 +23,18 @@ algos = [
     # bubble_sort,
     # selection_sort,
     # insertion_sort,
-    # mergesort,
+    mergesort,
     # lumoto_quicksort,
     # hoare_quicksort,
     heapsort,
     timsort,
     # insertion_sort,
-    countingsort,
-    radixsort,
+    # countingsort,
+    # radixsort,
 ]
 
 
-n = 5000000
+n = 500000
 with yaspin(Spinners.clock, text="Generating numbers"):
     base_arr = [random.randint(0, 1200000) for i in range(n)]
 

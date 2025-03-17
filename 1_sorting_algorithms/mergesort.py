@@ -37,8 +37,9 @@ def mergesort(arr):
 
 
 if __name__ == "__main__":
-    n = 50000000
+    n = 5
     arr = [random.randint(0, n) for i in range(n)]
+    print(arr)
 
     start = time.time()
     mergesort(arr)
