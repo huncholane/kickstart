@@ -26,7 +26,7 @@ algos = [
     # mergesort,
     # lumoto_quicksort,
     # hoare_quicksort,
-    # heapsort,
+    heapsort,
     timsort,
     # insertion_sort,
     countingsort,

@@ -3,18 +3,9 @@ import time
 from utils import swap
 
 
-def heapify_up(arr, i):
-    if i == 1:
-        return
-    parent = int(i / 2)
-    if arr[parent] < arr[i]:
-        swap(arr, i, parent)
-        heapify_up(arr, parent)
-
-
-def heapify_down(arr, start, end):
+def heapify_down(arr, root_index, end):
     # Leaf node
-    c1 = (start + 1) * 2 - 1
+    c1 = (root_index + 1) * 2 - 1
     c2 = c1 + 1
     if c1 > end:
         return
@@ -23,13 +14,14 @@ def heapify_down(arr, start, end):
         child = c1
     else:
         child = c2
-    if arr[child] > arr[start]:
-        swap(arr, start, child)
+    if arr[child] > arr[root_index]:
+        swap(arr, root_index, child)
         heapify_down(arr, child, end)
 
 
 def build_maxheap(arr):
-    for i in range(int(len(arr) / 2), -1, -1):
+    n = len(arr)
+    for i in range(n // 2 - 1, -1, -1):
         heapify_down(arr, i, len(arr) - 1)
 
 
