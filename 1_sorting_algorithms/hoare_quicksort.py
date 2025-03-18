@@ -44,7 +44,6 @@ Hoare is slightly faster than Lumoto with less swaps.
 def partition(arr, l, r):
     pivot = arr[random.randint(l, r - 1)]
     i, j = l - 1, r + 1
-
     while True:
         i += 1
         while arr[i] < pivot:
