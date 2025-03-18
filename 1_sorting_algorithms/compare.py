@@ -12,6 +12,7 @@ from mergesort import mergesort
 from hoare_quicksort import hoare_quicksort
 from radixsort import radixsort
 from selectionsort import selection_sort
+import numpy as np
 
 
 def timsort(arr):
@@ -23,10 +24,10 @@ algos = [
     # bubble_sort,
     # selection_sort,
     # insertion_sort,
-    mergesort,
-    # lumoto_quicksort,
+    # mergesort,
+    lumoto_quicksort,
     # hoare_quicksort,
-    heapsort,
+    # heapsort,
     timsort,
     # insertion_sort,
     # countingsort,
@@ -34,7 +35,7 @@ algos = [
 ]
 
 
-n = 5000
+n = 500000
 with yaspin(Spinners.clock, text="Generating numbers"):
     base_arr = [random.randint(0, 1200000) for i in range(n)]
 
