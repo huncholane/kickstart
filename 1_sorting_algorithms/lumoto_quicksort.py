@@ -7,7 +7,7 @@ def partition(arr, l, r):
     arr[l], arr[pi] = arr[pi], arr[l]
     i, j = l, l + 1
     while j <= r:
-        if arr[j] <= arr[l]:
+        if arr[j] < arr[l]:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
         j += 1
