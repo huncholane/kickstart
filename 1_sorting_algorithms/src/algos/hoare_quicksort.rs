@@ -1,27 +1,32 @@
-fn helper(arr: &mut Vec<i32>, start: usize, end: usize) {
+fn partition(arr: &mut Vec<i32>, l: usize, r: usize) -> usize {
+    let mid = (l + r) / 2;
+    let pi = rand::random_range(l..r + 1);
+    arr.swap(pi, mid);
+    let (mut i, mut j) = (l - 1, r + 1);
+    loop {
+        i += 1;
+        while arr[i] < arr[mid] {
+            i += 1;
+        }
+        j -= 1;
+        while arr[j] > arr[mid] {
+            j -= 1;
+        }
+        if i >= j {
+            return j;
+        }
+        arr.swap(i, j);
+    }
+}
+fn helper(arr: &mut Vec<i32>, l: usize, r: usize) {
     // Leaf job
-    if start >= end {
+    if l >= r {
         return;
     }
     // Internal node worker
-    let pivotindex = rand::random_range(start..end + 1);
-    arr.swap(start, pivotindex);
-    let mut smaller = start + 1;
-    let mut bigger = end;
-    while smaller <= bigger {
-        if arr[smaller] < arr[start] {
-            smaller += 1;
-        } else if arr[bigger] > arr[start] {
-            bigger -= 1;
-        } else {
-            arr.swap(bigger, smaller);
-            smaller += 1;
-            bigger -= 1;
-        }
-    }
-    arr.swap(start, bigger);
-    helper(arr, start, bigger.max(1) - 1);
-    helper(arr, smaller + 1, end);
+    let pi = partition(arr, l, r);
+    helper(arr, l, pi.max(1) - 1);
+    helper(arr, pi + 1, r);
 }
 
 pub fn hoare_quicksort(arr: &mut Vec<i32>) {
