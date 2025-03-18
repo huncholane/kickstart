@@ -25,7 +25,7 @@ fn helper(arr: &mut Vec<i32>, l: usize, r: usize) {
     }
     // Internal node worker
     let pi = partition(arr, l, r);
-    helper(arr, l, pi.max(1) - 1);
+    helper(arr, l, pi);
     helper(arr, pi + 1, r);
 }
 
