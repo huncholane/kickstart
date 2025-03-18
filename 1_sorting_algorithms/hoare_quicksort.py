@@ -6,17 +6,19 @@ from utils import swap
 
 def partition(arr, l, r):
     pi = random.randint(l, r)
-    arr[pi], arr[l] = arr[l], arr[pi]
-    i, j = l + 1, r
-    while i <= j:
-        if arr[i] <= arr[l]:
+    mid = (l + r) // 2
+    arr[pi], arr[mid] = arr[mid], arr[pi]
+    i, j = l - 1, r + 1
+    while True:
+        i += 1
+        while arr[i] < arr[mid]:
             i += 1
-        elif arr[j] > arr[l]:
+        j -= 1
+        while arr[j] > arr[mid]:
             j -= 1
-        else:
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[l], arr[j] = arr[j], arr[l]
-    return j
+        if i >= j:
+            return j
+        arr[i], arr[j] = arr[j], arr[i]
 
 
 def helper(arr, l: int, r: int):

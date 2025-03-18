@@ -29,9 +29,7 @@ pub fn helper(arr: &mut Vec<i32>, start: usize, end: usize) {
         j += 1;
     }
     // Copy into original array
-    for (i, num) in aux.iter().enumerate() {
-        arr[start + i] = *num;
-    }
+    arr[start..start + aux.len()].copy_from_slice(&aux);
 }
 
 pub fn mergesort(arr: &mut Vec<i32>) {

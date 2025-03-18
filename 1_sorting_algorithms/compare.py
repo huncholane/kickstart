@@ -24,7 +24,7 @@ algos = [
     # bubble_sort,
     # selection_sort,
     # insertion_sort,
-    # mergesort,
+    mergesort,
     lumoto_quicksort,
     hoare_quicksort,
     # heapsort,
