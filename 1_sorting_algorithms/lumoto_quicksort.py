@@ -30,13 +30,12 @@ algorithm partition(A, start, end) is
 
 def partition(arr, l, r):
     pi = random.randint(l, r)
-    arr[pi], arr[l] = arr[l], arr[pi]
-    i, j = l, l + 1
+    i = l
     for j in range(l + 1, r + 1):
         if arr[j] < arr[l]:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
-    arr[i], arr[l] = arr[l], arr[i]
+    arr[l], arr[i] = arr[i], arr[l]
     return i
 
 
