@@ -1,6 +1,7 @@
 import random
 import time
 
+from test import assert_in_order, test_sorting
 from utils import swap
 
 """
@@ -72,11 +73,11 @@ def hoare_quicksort(arr):
 
 
 if __name__ == "__main__":
-    n = 5
+    n = 10
     arr = [random.randint(0, n) for i in range(n)]
     print(arr)
 
     start = time.time()
     hoare_quicksort(arr)
     print(time.time() - start, "seconds")
-    print(arr[:5])
+    test_sorting(hoare_quicksort, times=20)
