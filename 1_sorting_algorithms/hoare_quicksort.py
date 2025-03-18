@@ -36,6 +36,8 @@ algorithm partition(A, start, end) is
         if i ≥ j then
             return j
         swap A[i] with A[j]
+
+Hoare is slightly faster than Lumoto with less swaps.
 """
 
 
