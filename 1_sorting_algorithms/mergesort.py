@@ -1,6 +1,8 @@
 import random
 import time
 
+from test import test_sorting
+
 
 def helper(arr, l, r):
     if l == r:
@@ -39,4 +41,8 @@ if __name__ == "__main__":
     start = time.time()
     mergesort(arr)
     print(time.time() - start, "seconds")
-    print(arr[:5])
+    try:
+        test_sorting(mergesort)
+        print(f"\033[32mSuccess\033[0m")
+    except AssertionError as e:
+        print(f"\033[31mFailed: {e}\033[0m")
