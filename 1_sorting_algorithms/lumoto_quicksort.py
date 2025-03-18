@@ -11,7 +11,7 @@ def partition(arr, l, r):
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
         j += 1
-    arr[i], arr[l] = arr[l], arr[i]
+    arr[l], arr[i] = arr[i], arr[l]
     return i
 
 
