@@ -4,7 +4,7 @@ import time
 
 def partition(arr, l, r):
     pi = random.randint(l, r)
-    arr[pi], arr[l] = arr[l], arr[pi]
+    arr[l], arr[pi] = arr[pi], arr[l]
     i, j = l, l + 1
     while j <= r:
         if arr[j] <= arr[l]:
