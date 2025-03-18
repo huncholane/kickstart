@@ -4,37 +4,40 @@ import time
 from utils import swap
 
 
-def helper(arr, start: int, end: int):
+def partition(arr, l, r):
+    pi = random.randint(l, r)
+    arr[pi], arr[l] = arr[l], arr[pi]
+    i, j = l + 1, r
+    while i <= j:
+        if arr[i] <= arr[l]:
+            i += 1
+        elif arr[j] > arr[l]:
+            j -= 1
+        else:
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[l], arr[j] = arr[j], arr[l]
+    return j
+
+
+def helper(arr, l: int, r: int):
     # Leaf node
-    if start >= end:
+    if l >= r:
         return
     # Internal node worker
-    pivotindex = random.randint(start, end)
-    swap(arr, start, pivotindex)
-    smaller = start + 1
-    bigger = end
-    while smaller <= bigger:
-        if arr[smaller] < arr[start]:
-            smaller += 1
-        elif arr[bigger] > arr[start]:
-            bigger -= 1
-        else:
-            swap(arr, smaller, bigger)
-            smaller += 1
-            bigger -= 1
-    swap(arr, bigger, start)
-    helper(arr, start, bigger - 1)
-    helper(arr, bigger + 1, end)
+    pi = partition(arr, l, r)
+    helper(arr, l, pi - 1)
+    helper(arr, pi + 1, r)
 
 
 def hoare_quicksort(arr):
-    """O(nlogn) very fast but requires extra memory"""
+    """Generally O(nlogn) if the partition is random"""
     helper(arr, 0, len(arr) - 1)
 
 
 if __name__ == "__main__":
-    n = 50000
+    n = 5
     arr = [random.randint(0, n) for i in range(n)]
+    print(arr)
 
     start = time.time()
     hoare_quicksort(arr)
