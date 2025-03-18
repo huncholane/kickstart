@@ -29,7 +29,8 @@ algorithm partition(A, start, end) is
 
 
 def partition(arr, l, r):
-    pi = random.randint(l, r)
+    p = random.randint(l, r)
+    arr[l], arr[p] = arr[p], arr[l]
     i = l
     for j in range(l + 1, r + 1):
         if arr[j] < arr[l]:
