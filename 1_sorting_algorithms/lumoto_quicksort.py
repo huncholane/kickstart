@@ -4,15 +4,14 @@ import time
 
 def partition(arr, l, r):
     pi = random.randint(l, r)
-    arr[r], arr[pi] = arr[pi], arr[r]
-    pivot = arr[r]
-    i = l - 1
-    for j in range(l, r):
-        if arr[j] < pivot:
+    arr[pi], arr[l] = arr[l], arr[pi]
+    i, j = l, l + 1
+    for j in range(l + 1, r + 1):
+        if arr[j] < arr[l]:
             i += 1
-            arr[j], arr[i] = arr[i], arr[j]
-    arr[i + 1], arr[r] = arr[r], arr[i + 1]
-    return i + 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i], arr[l] = arr[l], arr[i]
+    return i
 
 
 def helper(arr, l, r):
@@ -24,8 +23,7 @@ def helper(arr, l, r):
 
 
 def lumoto_quicksort(arr):
-    n = len(arr)
-    helper(arr, 0, n - 1)
+    helper(arr, 0, len(arr) - 1)
 
 
 if __name__ == "__main__":
