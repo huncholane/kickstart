@@ -6,6 +6,8 @@ This function partitions a[] in three parts
 
 """
 
+from test import test_sorting
+
 
 def partition(arr, first, last, start, mid):
 
@@ -67,8 +69,8 @@ def quicksort3(arr):
     helper(arr, 0, len(arr) - 1)
 
 
-# Code Start from here
-arr = [4, 9, 4, 4, 1, 9, 4, 4, 9, 4, 4, 1, 4]
-
-# print arr after sorting the elements
-print(arr)
+try:
+    test_sorting(quicksort3)
+    print(f"\033[32mGreat Success\033[0m")
+except Exception as e:
+    print(f"Failed: {e}")
