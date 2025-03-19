@@ -12,7 +12,7 @@ from test import test_sorting
 
 
 def partition(arr, l, r):
-    pivot = arr[l]
+    pivot = arr[random.randint(l, r)]
     i, j, k = l, l, r
     while j <= k:
         if arr[j] < pivot:
@@ -30,10 +30,6 @@ def partition(arr, l, r):
 def helper(arr, l, r):
     if l >= r:
         return
-    if r - l == 1:
-        if arr[l] > arr[r]:
-            arr[l], arr[r] = arr[r], arr[l]
-        return
     pl, pr = partition(arr, l, r)
     helper(arr, l, pl - 1)
     helper(arr, pr + 1, r)
@@ -44,14 +40,14 @@ def quicksort3(arr):
 
 
 if __name__ == "__main__":
-    n = 5
+    n = 2
     k = n
     arr = [random.randint(0, k) for _ in range(n)]
     start = time.time()
     quicksort3(arr)
     print(time.time() - start, "seconds")
     try:
-        test_sorting(quicksort3)
+        test_sorting(quicksort3, 10, 2)
         print(f"\033[32mGreat Success\033[0m")
     except Exception as e:
         print(f"Failed: {e}")
