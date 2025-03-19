@@ -6,71 +6,52 @@ This function partitions a[] in three parts
 
 """
 
+import random
+import time
 from test import test_sorting
 
 
-def partition(arr, first, last, start, mid):
-
-    pivot = arr[last]
-    end = last
-
-    # Iterate while mid is not greater than end.
-    while mid[0] <= end:
-
-        # Inter Change position of element at the starting if it's value is less than pivot.
-        if arr[mid[0]] < pivot:
-
-            arr[mid[0]], arr[start[0]] = arr[start[0]], arr[mid[0]]
-
-            mid[0] = mid[0] + 1
-            start[0] = start[0] + 1
-
-        # Inter Change position of element at the end if it's value is greater than pivot.
-        elif arr[mid[0]] > pivot:
-
-            arr[mid[0]], arr[end] = arr[end], arr[mid[0]]
-
-            end = end - 1
-
+def partition(arr, l, r):
+    pivot = arr[l]
+    i, j, k = l, l, r
+    while j <= k:
+        if arr[j] < pivot:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j += 1
+        elif arr[j] == pivot:
+            j += 1
         else:
-            mid[0] = mid[0] + 1
+            arr[j], arr[k] = arr[k], arr[j]
+            k -= 1
+    return i, k
 
 
-# Function to sort the array elements in 3 cases
-def helper(arr, first, last):
-    # First case when an array contain only 1 element
-    if first >= last:
+def helper(arr, l, r):
+    if l >= r:
         return
-
-    # Second case when an array contain only 2 elements
-    if last == first + 1:
-
-        if arr[first] > arr[last]:
-
-            arr[first], arr[last] = arr[last], arr[first]
-
-            return
-
-    # Third case when an array contain more than 2 elements
-    start = [first]
-    mid = [first]
-
-    # Function to partition the array.
-    partition(arr, first, last, start, mid)
-
-    # Recursively sort sublist containing elements that are less than the pivot.
-    helper(arr, first, start[0] - 1)
-
-    # Recursively sort sublist containing elements that are more than the pivot
-    helper(arr, mid[0], last)
+    if r - l == 1:
+        if arr[l] > arr[r]:
+            arr[l], arr[r] = arr[r], arr[l]
+        return
+    pl, pr = partition(arr, l, r)
+    helper(arr, l, pl - 1)
+    helper(arr, pr + 1, r)
 
 
 def quicksort3(arr):
     helper(arr, 0, len(arr) - 1)
 
 
-try:
-    test_sorting(quicksort3)
-    print(f"\033[32mGreat Success\033[0m")
-except Exception as e:
-    print(f"Failed: {e}")
+if __name__ == "__main__":
+    n = 5
+    k = n
+    arr = [random.randint(0, k) for _ in range(n)]
+    start = time.time()
+    quicksort3(arr)
+    print(time.time() - start, "seconds")
+    try:
+        test_sorting(quicksort3)
+        print(f"\033[32mGreat Success\033[0m")
+    except Exception as e:
+        print(f"Failed: {e}")
