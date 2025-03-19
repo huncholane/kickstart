@@ -3,7 +3,7 @@ mod countingsort;
 mod heapsort;
 mod hoare_quicksort;
 mod insertionsort;
-mod lumoto_quicksort;
+mod lomuto;
 mod mergesort;
 mod radixsort;
 mod selectionsort;
@@ -16,7 +16,7 @@ use heapsort::heapsort;
 use hoare_quicksort::hoare_quicksort;
 use indicatif::{ProgressBar, ProgressStyle};
 use insertionsort::insertion_sort;
-use lumoto_quicksort::lumoto_quicksort;
+use lomuto::lomuto_quicksort;
 use mergesort::mergesort;
 use radixsort::radixsort;
 use selectionsort::selectionsort;
@@ -64,7 +64,7 @@ impl SortingAlgo {
             Self::Counting => countingsort,
             Self::Heap => heapsort,
             Self::Hoare => hoare_quicksort,
-            Self::Lumoto => lumoto_quicksort,
+            Self::Lumoto => lomuto_quicksort,
             Self::Merge => mergesort,
             Self::Selection => selectionsort,
             Self::Insertion => insertion_sort,

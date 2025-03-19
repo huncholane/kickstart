@@ -29,8 +29,8 @@ algorithm partition(A, start, end) is
 
 
 def partition(arr, l, r):
-    p = random.randint(l, r)
-    arr[l], arr[p] = arr[p], arr[l]
+    i = random.randint(l, r)
+    arr[l], arr[i] = arr[i], arr[l]
     i = l
     for j in range(l + 1, r + 1):
         if arr[j] < arr[l]:
@@ -48,7 +48,7 @@ def helper(arr, l, r):
     helper(arr, pi + 1, r)
 
 
-def lumoto_quicksort(arr):
+def lomuto_quicksort(arr):
     helper(arr, 0, len(arr) - 1)
 
 
@@ -58,6 +58,6 @@ if __name__ == "__main__":
     print(arr)
 
     start = time.time()
-    lumoto_quicksort(arr)
+    lomuto_quicksort(arr)
     print(time.time() - start, "seconds")
     print(arr[:5])

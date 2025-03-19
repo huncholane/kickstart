@@ -25,7 +25,7 @@ fn helper(arr: &mut Vec<i32>, start: usize, end: usize) {
     helper(arr, smaller + 1, end);
 }
 
-pub fn lumoto_quicksort(arr: &mut Vec<i32>) {
+pub fn lomuto_quicksort(arr: &mut Vec<i32>) {
     let len = arr.len();
     helper(arr, 0, len - 1);
 }

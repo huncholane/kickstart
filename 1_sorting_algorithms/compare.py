@@ -7,7 +7,7 @@ from bubblesort import bubble_sort
 from countingsort import countingsort
 from heapsort import heapsort
 from insertionsort import insertion_sort
-from lumoto_quicksort import lumoto_quicksort
+from lomuto_quicksort import lomuto_quicksort
 from mergesort import mergesort
 from hoare_quicksort import hoare_quicksort
 from radixsort import radixsort
@@ -25,7 +25,7 @@ algos = [
     # selection_sort,
     # insertion_sort,
     mergesort,
-    lumoto_quicksort,
+    lomuto_quicksort,
     hoare_quicksort,
     # heapsort,
     timsort,
