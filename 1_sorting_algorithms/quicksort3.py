@@ -4,6 +4,8 @@ This function partitions a[] in three parts
    b) a[start+1..mid-1] contains all occurrences of pivot
    c) a[mid..last] contains all elements greater than pivot
 
+This is a little slower than hoares and lomutos when the numbers
+are unique but is way faster when they are.
 """
 
 import random
