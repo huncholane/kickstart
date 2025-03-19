@@ -1,6 +1,8 @@
 import random
 import time
 
+from test import test_sorting
+
 """
 Lomuto Partition Scheme
 Lomuto partition scheme selects a pivot element, which is typically the last element of the array. While partitioning a range [start, end], the algorithm maintains index i as it scans the array.
@@ -60,4 +62,8 @@ if __name__ == "__main__":
     start = time.time()
     lomuto_quicksort(arr)
     print(time.time() - start, "seconds")
-    print(arr[:5])
+    try:
+        test_sorting(lomuto_quicksort, 100, 100)
+        print(f"\033[32mGreat success!\033[0m")
+    except Exception as e:
+        print(f"\033[31mSomething horrible happened: {e}\033[0m")
