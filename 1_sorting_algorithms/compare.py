@@ -12,6 +12,7 @@ from mergesort import mergesort
 from hoare_quicksort import hoare_quicksort
 from radixsort import radixsort
 from selectionsort import selection_sort
+from quicksort3 import quicksort3
 import numpy as np
 
 
@@ -25,8 +26,9 @@ algos = [
     # selection_sort,
     # insertion_sort,
     mergesort,
-    lomuto_quicksort,
+    # lomuto_quicksort,
     hoare_quicksort,
+    quicksort3,
     # heapsort,
     timsort,
     # insertion_sort,
@@ -35,9 +37,9 @@ algos = [
 ]
 
 
-n = 500000
+n = 50000
 with yaspin(Spinners.clock, text="Generating numbers"):
-    base_arr = [random.randint(0, 1200000) for i in range(n)]
+    base_arr = [random.randint(0, 10) for i in range(n)]
 
 for algo in algos:
     with yaspin(Spinners.aesthetic, text=f"Running {algo.__name__}") as sp:
