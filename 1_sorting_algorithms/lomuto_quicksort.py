@@ -31,23 +31,26 @@ algorithm partition(A, start, end) is
 """
 
 
+def partition(arr, l, r):
+    i = l
+    for j in range(l + 1, r + 1):
+        if arr[j] < arr[l]:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[l], arr[i] = arr[i], arr[l]
+    return i
+
+
+def helper(arr, l, r):
+    if l >= r:
+        return
+    pi = partition(arr, l, r)
+    helper(arr, l, pi - 1)
+    helper(arr, pi + 1, r)
+
+
 def lomuto_quicksort(arr):
-    n = len(arr)
-    stack = [(0, n - 1)]
-    while stack:
-        l, r = stack.pop()
-        pi = random.randint(l, r)
-        arr[l], arr[pi] = arr[pi], arr[l]
-        i = l
-        for j in range(l + 1, r + 1):
-            if arr[j] < arr[l]:
-                i += 1
-                arr[i], arr[j] = arr[j], arr[i]
-        arr[l], arr[i] = arr[i], arr[l]
-        if l < i - 1:
-            stack.append((l, i - 1))
-        if i + 1 < r:
-            stack.append((i + 1, r))
+    helper(arr, 0, len(arr) - 1)
 
 
 if __name__ == "__main__":

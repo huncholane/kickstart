@@ -42,27 +42,42 @@ Hoare is slightly faster than Lumoto with less swaps.
 """
 
 
-def hoare_quicksort(arr):
-    n = len(arr)
-    stack = [(0, n - 1)]
-    while stack:
-        l, r = stack.pop()
-        pivot = arr[random.randrange(l, r)]
-        i, j = l - 1, r + 1
-        while True:
+def partition(arr, l, r):
+    pivot = arr[l]
+    i, j = l - 1, r + 1
+    while True:
+        i += 1
+        while arr[i] < pivot:
             i += 1
-            while arr[i] < pivot:
-                i += 1
+        j -= 1
+        while arr[j] > pivot:
             j -= 1
-            while arr[j] > pivot:
-                j -= 1
-            if i >= j:
-                break
-            arr[i], arr[j] = arr[j], arr[i]
-        if l < j:
-            stack.append((l, j))
-        if j + 1 < r:
-            stack.append((j + 1, r))
+        if i >= j:
+            return j
+        arr[i], arr[j] = arr[j], arr[i]
+
+
+def helper(arr, l, r):
+    if l >= r:
+        return
+    pi = partition(arr, l, r)
+    helper(arr, l, pi)
+    helper(arr, pi + 1, r)
+
+
+def hoare_quicksort(arr):
+    helper(arr, 0, len(arr) - 1)
+
+
+# def hoare_quicksort(arr):
+#     stack = [(0, len(arr) - 1)]
+#     while stack:
+#         l, r = stack.pop()
+#         if l >= r:
+#             continue
+#         pi = partition(arr, l, r)
+#         stack.append((l, pi))
+#         stack.append((pi + 1, r))
 
 
 if __name__ == "__main__":
