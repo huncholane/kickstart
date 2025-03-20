@@ -1,5 +1,6 @@
 import random
 import time
+from traceback import format_exc
 
 from test import test_sorting
 
@@ -30,28 +31,29 @@ algorithm partition(A, start, end) is
 """
 
 
-def partition(arr, l, r):
-    i = random.randint(l, r)
-    arr[l], arr[i] = arr[i], arr[l]
-    i = l
-    for j in range(l + 1, r + 1):
-        if arr[j] < arr[l]:
-            i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[l], arr[i] = arr[i], arr[l]
-    return i
-
-
-def helper(arr, l, r):
-    if l >= r:
-        return
-    pi = partition(arr, l, r)
-    helper(arr, l, pi - 1)
-    helper(arr, pi + 1, r)
-
-
 def lomuto_quicksort(arr):
-    helper(arr, 0, len(arr) - 1)
+    def swap(i, j):
+        arr[i], arr[j] = arr[j], arr[i]
+
+    def partition(l, r):
+        pi = random.randint(l, r)
+        swap(pi, l)
+        i = l
+        for j in range(l + 1, r + 1):
+            if arr[j] < arr[l]:
+                i += 1
+                swap(i, j)
+        swap(l, i)
+        return i
+
+    def helper(l, r):
+        if l >= r:
+            return
+        pi = partition(l, r)
+        helper(l, pi - 1)
+        helper(pi + 1, r)
+
+    helper(0, len(arr) - 1)
 
 
 if __name__ == "__main__":
@@ -67,3 +69,4 @@ if __name__ == "__main__":
         print(f"\033[32mGreat success!\033[0m")
     except Exception as e:
         print(f"\033[31mSomething horrible happened: {e}\033[0m")
+        print(format_exc())
