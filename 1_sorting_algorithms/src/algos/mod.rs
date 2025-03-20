@@ -106,8 +106,4 @@ impl SortingAlgo {
         println!("{} {:?}", self, dur);
         println!("{:?}", &arr[..5]);
     }
-
-    pub fn test(&self, arr: &mut Vec<i32>) {
-        let f = self.algo();
-    }
 }
