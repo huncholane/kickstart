@@ -42,34 +42,23 @@ Hoare is slightly faster than Lumoto with less swaps.
 """
 
 
-def partition(arr, l, r):
-    pivot = arr[random.randint(l, r - 1)]
-    i, j = l - 1, r + 1
-    while True:
-        i += 1
-        while arr[i] < pivot:
-            i += 1
-        j -= 1
-        while arr[j] > pivot:
-            j -= 1
-        if i >= j:
-            return j
-        arr[i], arr[j] = arr[j], arr[i]
-
-
-def helper(arr, l: int, r: int):
-    # Leaf node
-    if l >= r:
-        return
-    # Internal node worker
-    pi = partition(arr, l, r)
-    helper(arr, l, pi)
-    helper(arr, pi + 1, r)
-
-
 def hoare_quicksort(arr):
-    """Generally O(nlogn) if the partition is random"""
-    helper(arr, 0, len(arr) - 1)
+    n = len(arr)
+    stack = [(0, n - 1)]
+    while stack:
+        l, r = stack.pop()
+        pi = random.randrange(l, r)
+        arr[l], arr[pi] = arr[pi], arr[l]
+        i = l
+        for j in range(l + 1, r + 1):
+            if arr[j] < arr[l]:
+                i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+        arr[l], arr[i] = arr[i], arr[l]
+        if l < i - 1:
+            stack.append((l, i - 1))
+        if i + 1 < r:
+            stack.append((i + 1, r))
 
 
 if __name__ == "__main__":
@@ -80,4 +69,4 @@ if __name__ == "__main__":
     start = time.time()
     hoare_quicksort(arr)
     print(time.time() - start, "seconds")
-    test_sorting(hoare_quicksort, times=20)
+    test_sorting(hoare_quicksort, times=20, size=100)

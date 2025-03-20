@@ -1,10 +1,8 @@
 pub fn lomuto_quicksort(arr: &mut Vec<i32>) {
-    let mut stack = vec![(0, arr.len() - 1)];
+    let n = arr.len();
+    let mut stack = vec![(0, n - 1)];
     while stack.len() > 0 {
         let (l, r) = stack.pop().unwrap();
-        if l >= r {
-            continue;
-        }
         let mut i = l;
         for j in l + 1..=r {
             if arr[j] < arr[l] {
@@ -13,9 +11,11 @@ pub fn lomuto_quicksort(arr: &mut Vec<i32>) {
             }
         }
         arr.swap(l, i);
-        if l > 1 {
+        if l > 0 && l < i - 1 {
             stack.push((l, i - 1));
         }
-        stack.push((i + 1, r));
+        if r < n && i + 1 < r {
+            stack.push((i + 1, r));
+        }
     }
 }
