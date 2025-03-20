@@ -47,18 +47,22 @@ def hoare_quicksort(arr):
     stack = [(0, n - 1)]
     while stack:
         l, r = stack.pop()
-        pi = random.randrange(l, r)
-        arr[l], arr[pi] = arr[pi], arr[l]
-        i = l
-        for j in range(l + 1, r + 1):
-            if arr[j] < arr[l]:
+        pivot = arr[random.randrange(l, r)]
+        i, j = l - 1, r + 1
+        while True:
+            i += 1
+            while arr[i] < pivot:
                 i += 1
-                arr[i], arr[j] = arr[j], arr[i]
-        arr[l], arr[i] = arr[i], arr[l]
-        if l < i - 1:
-            stack.append((l, i - 1))
-        if i + 1 < r:
-            stack.append((i + 1, r))
+            j -= 1
+            while arr[j] > pivot:
+                j -= 1
+            if i >= j:
+                break
+            arr[i], arr[j] = arr[j], arr[i]
+        if l < j:
+            stack.append((l, j))
+        if j + 1 < r:
+            stack.append((j + 1, r))
 
 
 if __name__ == "__main__":
