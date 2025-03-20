@@ -26,7 +26,7 @@ algos = [
     # selection_sort,
     # insertion_sort,
     mergesort,
-    # lomuto_quicksort,
+    lomuto_quicksort,
     hoare_quicksort,
     quicksort3,
     # heapsort,
@@ -38,7 +38,7 @@ algos = [
 
 
 n = 50000
-k = 10
+k = n
 with yaspin(Spinners.clock, text="Generating numbers"):
     base_arr = [random.randint(0, k) for i in range(n)]
 
