@@ -1,31 +1,21 @@
-fn helper(arr: &mut Vec<i32>, start: usize, end: usize) {
-    // Leaf job
-    if start >= end {
-        return;
-    }
-    // Internal node worker
-    let pivotindex = rand::random_range(start..end + 1);
-    arr.swap(start, pivotindex);
-    let mut smaller = start;
-    for bigger in start + 1..end + 1 {
-        if arr[bigger] < arr[start] {
-            smaller += 1;
-            arr.swap(bigger, smaller);
-        }
-    }
-    arr.swap(start, smaller);
-    helper(
-        arr,
-        start,
-        match smaller == 0 {
-            true => smaller,
-            false => smaller - 1,
-        },
-    );
-    helper(arr, smaller + 1, end);
-}
-
 pub fn lomuto_quicksort(arr: &mut Vec<i32>) {
-    let len = arr.len();
-    helper(arr, 0, len - 1);
+    let mut stack = vec![(0, arr.len() - 1)];
+    while stack.len() > 0 {
+        let (l, r) = stack.pop().unwrap();
+        if l >= r {
+            continue;
+        }
+        let mut i = l;
+        for j in l + 1..=r {
+            if arr[j] < arr[l] {
+                i += 1;
+                arr.swap(i, j);
+            }
+        }
+        arr.swap(l, i);
+        if l > 1 {
+            stack.push((l, i - 1));
+        }
+        stack.push((i + 1, r));
+    }
 }
