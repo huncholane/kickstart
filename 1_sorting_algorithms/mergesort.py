@@ -29,7 +29,6 @@ def helper(arr, l, r):
 
 
 def mergesort(arr):
-    """O(nlogn) very fast but requires extra memory"""
     helper(arr, 0, len(arr) - 1)
 
 
