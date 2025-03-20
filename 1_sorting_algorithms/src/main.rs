@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use clap::Parser;
+use clap::{ArgAction, Parser};
 use indicatif::{ProgressBar, ProgressStyle};
 use sorting_algos::SortingAlgo;
 use strum::IntoEnumIterator;
@@ -27,7 +27,7 @@ struct Args {
     /// Want to debug an algo?
     /// Debugs specific algo if present.
     /// Tests all algos enabled with env if not present.
-    #[arg(short)]
+    #[arg(short, action = ArgAction::Set,value_enum)]
     algo: Option<SortingAlgo>,
 }
 

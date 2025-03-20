@@ -1,6 +1,6 @@
 pub fn hoare_quicksort(arr: &mut Vec<i32>) {
     let n = arr.len();
-    let mut stack = vec![(0, arr.len() - 1)];
+    let mut stack = vec![(0, n - 1)];
     while stack.len() > 0 {
         let (l, r) = stack.pop().unwrap();
         let pivot = arr[(l + r) / 2];

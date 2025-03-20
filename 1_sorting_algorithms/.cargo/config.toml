@@ -12,6 +12,7 @@ UNSTABLE="ON"
 # RADIX="ON"
 DEFAULT_TEST_N="50000"
 DEFAULT_DEBUG_N="5"
+TEST_COUNT="5"
 
 [alias]
 r = "run -- "
