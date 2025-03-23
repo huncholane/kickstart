@@ -26,10 +26,10 @@ algos = [
     # selection_sort,
     # insertion_sort,
     mergesort,
-    lomuto_quicksort,
+    # lomuto_quicksort,
     hoare_quicksort,
-    # quicksort3,
-    # heapsort,
+    quicksort3,
+    heapsort,
     timsort,
     # insertion_sort,
     # countingsort,
@@ -38,7 +38,7 @@ algos = [
 
 
 n = 50000
-k = n
+k = 10
 with yaspin(Spinners.clock, text="Generating numbers"):
     base_arr = [random.randint(0, k) for i in range(n)]
 

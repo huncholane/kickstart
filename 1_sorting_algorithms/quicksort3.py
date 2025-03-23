@@ -14,7 +14,7 @@ from test import test_sorting
 
 
 def partition(arr, l, r):
-    pivot = arr[random.randint(l, r)]
+    pivot = arr[(l + r) // 2]
     i, j, k = l, l, r
     while j <= k:
         if arr[j] < pivot:
