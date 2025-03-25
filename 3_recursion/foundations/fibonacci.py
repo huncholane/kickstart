@@ -2,8 +2,6 @@ import argparse
 
 import click
 
-from timer import timeit
-
 
 def memo_helper(n, memo):
     if n <= 1:
@@ -15,7 +13,6 @@ def memo_helper(n, memo):
     return result
 
 
-@timeit
 def fib_memo(n):
     """Cache results into map"""
     memo = {}
@@ -28,7 +25,6 @@ def add_helper(n, b1, b2):
     return add_helper(n - 1, b2, b1 + b2)
 
 
-@timeit
 def fib_add(n):
     """Additive O(n) with no aux"""
     return add_helper(n, 0, 1)

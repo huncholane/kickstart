@@ -1,5 +1,4 @@
 import click
-from timer import timeit
 
 
 def helper(n, k):
@@ -9,7 +8,6 @@ def helper(n, k):
     return helper(n - 1, k) + helper(n - 1, k - 1)
 
 
-@timeit
 def c(n, k):
     return helper(n, k)
 
