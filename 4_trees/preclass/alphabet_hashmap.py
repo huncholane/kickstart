@@ -1,27 +1,24 @@
-def hash_function(key):
-    return ord(key) - 97
-
-
 class HashMap:
-    """A hashmap with a simple function using the first letter for hash function.
-    This is terrible and causes collisions.
-    Only works with a-z"""
+    """Hashmap that sums the ascii value of word and mods by 1000 which is very collision prone"""
 
     def __init__(self):
         """m is the size of the hashmap"""
-        self.m = 26
+        self.m = 1000
         self.arr = [None] * self.m
 
+    def hash_function(self, key):
+        return sum([ord(c) for c in key])
+
     def search(self, key):
-        key = hash_function(key[0])
+        key = self.hash_function(key)
         if self.arr[key]:
             return self.arr[key][1]
 
     def insert(self, key, val):
-        self.arr[hash_function(key[0])] = (key, val)
+        self.arr[self.hash_function(key)] = (key, val)
 
-    def delete(self, key, val):
-        self.arr[hash_function(key[0])] = None
+    def delete(self, key):
+        self.arr[self.hash_function(key)] = None
 
     def __str__(self):
         s = "{\n"
@@ -37,4 +34,6 @@ m.insert("hi", "hey")
 m.insert("im", "Huncho")
 m.insert("hashmap", "hashmap is really cool")
 m.insert("uhh", "what happened to hi: hey?")
+m.insert("ohhh", "dang we upgraded the hash function")
+m.delete("uhh")
 print(m)
