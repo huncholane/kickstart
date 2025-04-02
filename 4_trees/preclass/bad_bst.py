@@ -15,6 +15,10 @@ class Node:
 class BST:
     def __init__(self):
         self.mid = None
+        self.count = 0
+
+    def __len__(self):
+        return self.count
 
     def search(self, key):
         def helper(node: Node):
@@ -48,6 +52,7 @@ class BST:
             return node
 
         self.mid = helper(self.mid)
+        self.count += 1
 
     def value_list(self):
         """Returns array of values in correct order using reversed dfs"""
@@ -99,4 +104,5 @@ b.insert("e", "1st e value")
 b.insert("b", "1st b value")
 print(b.search("i"))
 print(b)
-print(b.search("e"))
+print(b.search("d"))
+print(len(b))
