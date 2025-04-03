@@ -13,21 +13,20 @@ class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        res = 0
+        res = 0  # global diameter
 
         def dfs(node):
             nonlocal res
             if not (node.left or node.right):
-                return 0
-            l, r = 0, 0
-            diameter = 0
+                return 0  # leaf has 0 edges
+            l, r, d = 0, 0, 0  # left height, right height, current diameter
             if node.left:
                 l = dfs(node.left)
-                diameter += l + 1
+                d += 1 + l
             if node.right:
                 r = dfs(node.right)
-                diameter += r + 1
-            res = max(diameter, res)
+                d += 1 + r
+            res = max(res, d)
             return max(l, r) + 1
 
         dfs(root)
