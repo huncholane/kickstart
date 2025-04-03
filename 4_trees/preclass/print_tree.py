@@ -1,34 +1,42 @@
 class Node:
     def __init__(self, val):
         self.val = val
-        self.next: Node = None
-        self.prev: Node = None
+        self.left: Node = None
+        self.right: Node = None
 
     def __str__(self):
         return str(self.val)
 
 
 root = Node(4)
-root.next = Node(5)
-root.prev = Node(2)
-root.prev.prev = Node(1)
-root.prev.next = Node(3)
-root.next.next = Node(7)
-
-slate, res = [], []
-
-
-def helper(node):
-    if node is None:
-        for i in range(len(slate) - 1, -1, -1):
-            res.append(slate[i])
-        return
-    slate.append(node.val)
-    helper(node.prev)
-    slate.clear()
-    helper(node.next)
-    slate.clear()
+root.left = Node(2)
+root.left.right = Node(3)
+root.left.left = Node(1)
+root.right = Node(10)
+root.right.left = Node(7)
+root.right.left.left = Node(6)
 
 
-helper(root)
-print(res)
+def bfs(root):
+    q = [root]
+    res = []
+    maxlen = 0
+    while q:
+        numnodes = len(q)
+        if numnodes > maxlen:
+            maxlen = numnodes
+        slate = []
+        for _ in range(numnodes):
+            node = q.pop(0)
+            slate.append(node.val)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        res.append(slate)
+    return res, maxlen
+
+
+levels, maxlen = bfs(root)
+print(" " * maxlen, levels[0][0], " " * maxlen, sep="")
+print(" " * (maxlen // 3 + 1), "/", " " * (maxlen // 3), "\\", sep="")
