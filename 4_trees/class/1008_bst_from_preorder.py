@@ -11,20 +11,19 @@ class TreeNode:
 
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
-        if not preorder:
-            return
-        n = len(preorder)
+        i = 0
 
-        def dfs(l, r):
-            if l > r:
-                return  # makes the left or right node none
-            val = preorder[l]  # the root of the current tree
+        def dfs(l, h):
+            nonlocal i
+            if i == len(preorder):
+                return
+            val = preorder[i]
+            if not l <= val <= h:
+                return
             root = TreeNode(val)
-            mid = l + 1
-            while mid <= r and preorder[mid] < val:
-                mid += 1  # Find the first val bigger than root
-            root.left = dfs(l + 1, mid - 1)
-            root.right = dfs(mid, r)
+            i += 1
+            root.left = dfs(l, val - 1)
+            root.right = dfs(val + 1, h)
             return root
 
-        return dfs(0, n - 1)
+        return dfs(float("-inf"), float("inf"))
