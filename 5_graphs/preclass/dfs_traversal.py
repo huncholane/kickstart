@@ -6,10 +6,12 @@ def dfs_traversal(n, edges):
     visited = [False] * n
     captured = []
     parent = [None] * n
+    connected_components = []
 
     def dfs(s):
         visited[s] = True
         captured.append(s)
+        connected_components[-1].append(s)
         for w in adj_list[s]:
             if not visited[w]:
                 parent[w] = s
@@ -17,12 +19,16 @@ def dfs_traversal(n, edges):
 
     for i in range(n):
         if not visited[i]:
+            connected_components.append([])
             dfs(i)
-    return captured
+    return captured, connected_components
 
 
-captured = dfs_traversal(
-    **{"n": 8, "edges": [[1, 2], [1, 4], [1, 7], [2, 3], [4, 5], [5, 6]]}
+captured, connected_components = dfs_traversal(
+    **{"n": 6, "edges": [[0, 1], [0, 2], [1, 4], [3, 5]]}
 )
 
 print("Captures", captured)
+print("Connected Components")
+for cc in connected_components:
+    print(cc)
