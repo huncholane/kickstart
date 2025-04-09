@@ -35,7 +35,7 @@ class Solution:
             return adj
 
         def shortestpath(n):
-            visited = {n: 0}
+            visited = {}
             q = [n]
             while q:
                 v = q.pop(0)
