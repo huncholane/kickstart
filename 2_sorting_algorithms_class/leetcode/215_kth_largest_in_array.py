@@ -1,10 +1,19 @@
+"""
+# 215. Kth Largest Element in an Array
+
+## Requirements
+- Do not sort first
+
+## Solution
+- Use quickselect
+- 3 way paritioning to combat repetitive numbers
+"""
+
 from typing import List
 import random
 
 
 class Solution:
-    """Uses quick select with a 3 way partition to combat repetitive numbers and
-    a random pivot to combat already in order."""
 
     def findKthLargest(self, nums: List[int], k: int) -> int:
         def part3(l, r):

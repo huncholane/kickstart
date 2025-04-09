@@ -1,12 +1,19 @@
+"""
+# 349. Intersection of Two Arrays
+
+## Requirements
+- Unique
+- Any order
+
+## Solution
+- Presort to make faster.
+- Use set and convert to list since order does not matter.
+"""
+
 from typing import List
 
 
 class Solution:
-    """The question asks for unique and any order.
-
-    - Presort to make faster.
-    - Use set since order does not matter."""
-
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums1.sort()
         nums2.sort()

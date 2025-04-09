@@ -1,14 +1,22 @@
+"""
+# Sort an Array
+
+## Requirements
+- Time Complexity: O(nlogn)
+- Space Complexity: O(n)
+
+## Solution
+- Use quicksort
+- Use 3 way partitioning to fight repetitive numbers
+"""
+
 import random
 from typing import List
-
-# The description is asking for nlogn with smallest space complexity
-# This points to quicksort
 
 
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
         def part3(l, r):
-            """Must use three way partition to combat repeated numbers."""
             pivot = nums[random.randint(l, r)]
             i, j, k = l, l, r
             while j <= k:
