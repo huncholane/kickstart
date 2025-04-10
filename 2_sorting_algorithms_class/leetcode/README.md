@@ -5,8 +5,8 @@
 - [215. Kth largest element in array](https://leetcode.com/problems/kth-largest-element-in-an-array/) ✅
 - [703. Kth largest element in a stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) ✅
 - [2164. Sort Even and Odd Indices Independently](https://leetcode.com/problems/sort-even-and-odd-indices-independently/) ✅
-- [75. Sort Colors](https://leetcode.com/problems/sort-colors/)
-- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+- [75. Sort Colors](https://leetcode.com/problems/sort-colors/) ✅
+- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) ✅
 - [15. 3Sum](https://leetcode.com/problems/3sum/)
 - [18. 4Sum](https://leetcode.com/problems/4sum/)
 - [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
