@@ -2,4 +2,4 @@
 
 # Requirements
 
-- Find edges the cause multiple servers to become unreachable
+- Find edges that cause multiple servers to become unreachable
