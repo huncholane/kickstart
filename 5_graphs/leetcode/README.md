@@ -12,3 +12,4 @@
 - [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
 - [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)
 - [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)
+- [2664. The Knight's Tour](https://leetcode.com/problems/the-knights-tour/)
