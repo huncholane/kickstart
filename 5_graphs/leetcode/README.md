@@ -10,3 +10,4 @@
 - [909. Snakes and ladders](https://leetcode.com/problems/snakes-and-ladders/)
 - [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
 - [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
+- [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)
