@@ -9,7 +9,7 @@
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) ✅
 - [15. 3Sum](https://leetcode.com/problems/3sum/)
 - [18. 4Sum](https://leetcode.com/problems/4sum/)
-- [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+- [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) ✅
 - [259. 3Sum Smaller](https://leetcode.com/problems/3sum-smaller/)
 - [1. Two Sum](https://leetcode.com/problems/two-sum/) ✅
 - [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
