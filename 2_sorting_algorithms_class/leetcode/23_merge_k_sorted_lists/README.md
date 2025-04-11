@@ -13,3 +13,4 @@
   - Make a dummy node and pointer
   - Pop the heap until empty and update the pointer
   - Return next from the dummy node
+- Can do it in place will try that later
