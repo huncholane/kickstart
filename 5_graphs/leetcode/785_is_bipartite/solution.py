@@ -2,8 +2,6 @@ from typing import List
 
 
 class Solution:
-    """BFS Solution, check if all cycles have even number of nodes"""
-
     def isBipartite(self, graph: List[List[int]]) -> bool:
         visited = [False] * len(graph)
         parent = [None] * len(graph)
