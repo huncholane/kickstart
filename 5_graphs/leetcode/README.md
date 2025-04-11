@@ -14,3 +14,5 @@
 - [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)
 - [2664. The Knight's Tour](https://leetcode.com/problems/the-knights-tour/)
 - [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
+- [1197. Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves/) ✅
+- [126. Word Ladder](https://leetcode.com/problems/word-ladder/)
