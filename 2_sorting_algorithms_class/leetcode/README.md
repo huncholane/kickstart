@@ -13,6 +13,6 @@
 - [259. 3Sum Smaller](https://leetcode.com/problems/3sum-smaller/)
 - [1. Two Sum](https://leetcode.com/problems/two-sum/) ✅
 - [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) ✅
-- [252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
+- [252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) ✅
 - [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) ✅
-- [1213. Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/)
+- [1213. Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/) ✅
