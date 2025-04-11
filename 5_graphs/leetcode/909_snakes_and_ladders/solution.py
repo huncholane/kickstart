@@ -2,8 +2,6 @@ from typing import List
 
 
 class Solution:
-    """Got completely destroyed by this question. The hardest thing to realize is that the last row is the bottom and that the column needs to be flipped on odd rows when converting the number to a row and column to find the next edge on the board."""
-
     def snakesAndLadders(self, board: List[List[int]]) -> int:
         n = len(board)
         adj_list = []
