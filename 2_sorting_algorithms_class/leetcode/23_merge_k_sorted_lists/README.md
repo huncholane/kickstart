@@ -4,7 +4,7 @@
 
 - Merge linked lists
 
-## Heap Solution
+## Solution 1 - Heap
 
 - Create a min heap that stores a tuple of (val,index,node)
   - Make an index that updates in the list traversal for all lists

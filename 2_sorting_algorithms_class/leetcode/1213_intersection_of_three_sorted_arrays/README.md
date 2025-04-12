@@ -4,7 +4,7 @@
 
 - Get the intersection of 3 arrays
 
-## Decrease and Conquer Solution
+## Solution 1 - Decrease and Conquer
 
 - Make a function that intersects 2 arrays
 - Intersect the first two arrays into result array

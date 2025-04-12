@@ -5,7 +5,7 @@
 - Unique
 - Any order
 
-## Solution
+## Solution 1
 
-- Presort to make faster.
+- Presort to make merge faster.
 - Use set and convert to list since order does not matter.

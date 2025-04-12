@@ -4,7 +4,8 @@
 
 - Do not sort first
 
-## Presort Solution
+## Solution 1 - Quick Select
 
 - Use quickselect
-- 3 way paritioning to combat repetitive numbers
+  - O(n) on average
+  - 3 way paritioning to combat repetitive numbers

@@ -5,7 +5,7 @@
 - Keep the kth largest element available to extract in constant time.
 - Update in O(logk)
 
-## Solution
+## Solution 1
 
 - Use a min heap initialized to empty.
 - Add items to the heap when the size is less than k or the element is larger than the kth largest value.

@@ -4,9 +4,20 @@
 
 - Sort even indices increasing and odd indices decreasing
 
-## Solution
+## Solution 1
 
-1. Gather even and odd indices into two arrays O(n)
-2. Sort evens increasing O(nlogn)
-3. Sort odds decreasing O(nlogn)
-4. Merge into result O(n)
+1. Gather even and odd indices into two arrays
+
+- O(n)
+
+2. Sort evens increasing
+
+- O(nlogn)
+
+3. Sort odds decreasing
+
+- O(nlogn)
+
+4. Merge into resul
+
+- t O(n)

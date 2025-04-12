@@ -4,7 +4,7 @@
 
 - Return the k most frequent words sorted highest to lowest
 
-## Sort Solution
+## Solution 1 - Sort with Timsort
 
 - Create hash map of word -> frequence
 - Store the unique words into a list

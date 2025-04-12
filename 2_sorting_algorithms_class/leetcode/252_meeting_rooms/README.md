@@ -4,7 +4,7 @@
 
 - Make sure the meetings never overlap
 
-## Presort Solution
+## Solution 1 - Presort
 
 - Return true if less than 2 intervals
 - Sort the intervals based on start O(nlogn)

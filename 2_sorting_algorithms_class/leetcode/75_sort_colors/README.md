@@ -4,6 +4,6 @@
 
 - Sort the repeating numbers in O(n) time
 
-## Solution
+## Solution 1
 
 - Use a 3 way partitioning algorithm known as the dutch national flag algorithm

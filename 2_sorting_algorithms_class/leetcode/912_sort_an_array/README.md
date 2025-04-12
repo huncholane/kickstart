@@ -5,7 +5,7 @@
 - Time Complexity: O(nlogn)
 - Space Complexity: O(n)
 
-## Solution
+## Solution 1
 
 - Use quicksort
 - Use 3 way partitioning to fight repetitive numbers
