@@ -2,7 +2,6 @@ from typing import List
 
 
 class Solution:
-    """Finds the max area by counting the captured in bfs using visited template"""
 
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         width, height = len(grid), len(grid[0])
