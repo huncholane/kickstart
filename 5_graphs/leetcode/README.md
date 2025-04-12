@@ -8,12 +8,14 @@
 - [695. Max Area of island](https://leetcode.com/problems/max-area-of-island/)
 - [733. Flood fill](https://leetcode.com/problems/flood-fill/)
 - [909. Snakes and ladders](https://leetcode.com/problems/snakes-and-ladders/)
-- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
-- [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
+- [207. Course Schedule](https://leetcode.com/problems/course-schedule/) ✅✅
+- [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) ✅✅
 - [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)
-- [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)
+- [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) ✅
 - [2664. The Knight's Tour](https://leetcode.com/problems/the-knights-tour/)
 - [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) ✅✅
 - [1197. Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves/) ✅
 - [127. Word Ladder](https://leetcode.com/problems/word-ladder/) ✅✅
 - [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)
+- [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) ✅
+- [827. Making a Large Island](https://leetcode.com/problems/making-a-large-island/)
