@@ -4,14 +4,14 @@
 
 - Return ordering of courses if possible
 
-## DFS Solution
+## Solution 1 - DFS
 
 - Make sure there is no cycle using DFS back edges
 - Utilize array called topsort
 - Topsort keeps list of first departed to last departed
 - The reversed topsort gives the list in the correct order
 
-## Kahn Solution
+## Solution2 - Kahn
 
 - O(m+n): Build the graph, topsort=[]
 - O(m+n): Find the in-degree of each node

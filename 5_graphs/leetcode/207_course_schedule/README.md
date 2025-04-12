@@ -4,13 +4,13 @@
 
 - Make sure all classes are accessible
 
-## DFS Solution
+## Solution 1 - DFS
 
 - Convert to directed graph
 - Keep track of arrival and departure timestamps, no need for arrival but following template
 - Run DFS and ensure there are no cycles (No Back Edges)
 
-## Kahn Solution
+## Solution 2 - Kahn
 
 - O(m+n): Build the graph, topsort=[]
 - O(m+n): Find the in-degree of each node

@@ -2,7 +2,6 @@ from typing import List
 
 
 class Solution:
-    """BFS Solution, check for cross edges"""
 
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         adj_list = [[] for _ in range(n)]
