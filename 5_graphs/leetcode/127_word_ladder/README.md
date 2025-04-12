@@ -1,4 +1,4 @@
-# [126. Word Ladder](https://leetcode.com/problems/word-ladder/)
+# [127. Word Ladder](https://leetcode.com/problems/word-ladder/)
 
 ## Requirements
 
@@ -13,3 +13,13 @@
 - Use the last index for the starting point
 
 ## Solution 2 - Iterate Characters
+
+- Faster if the length of each word is less than 26 characters
+- Create set and include the beginning word
+  - Bail early if end not in set
+- Initialize distance with 1 for the beginning word
+- Remove beginning word from set (Only reason we added at the beginning)
+- Initialize the queue with the beginning word
+- Run bfs searching for a word changing one character at time
+  - Remove found word from the set and add to q
+  - Update distance

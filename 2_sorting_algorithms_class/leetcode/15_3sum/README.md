@@ -7,8 +7,11 @@
 ## Decrease and Conquer Solution with Presorting
 
 - Presort the array
+  - O(nlogn)
 - Make a two sum function that returns all the pairs for a range that add up to a target with no duplicates
+  - O(n)
   - Slide to skip duplicates going left to right
 - Iterate the array and run two sum on the range [i+1,n-3] based on the compliment of the current index's value
+  - O(n²)
 - Add the current value to each solution from the two sum call
 - Slide to skip duplicates for the current value
