@@ -5,7 +5,7 @@
 - [785. Is graph bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
 - [886. Possible bipartition](https://leetcode.com/problems/possible-bipartition/)
 - [200. Number of islands](https://leetcode.com/problems/number-of-islands/)
-- [695. Max Area of island](https://leetcode.com/problems/max-area-of-island/) ✅
+- [695. Max Area of island](https://leetcode.com/problems/max-area-of-island/) ✅✅
 - [733. Flood fill](https://leetcode.com/problems/flood-fill/)
 - [909. Snakes and ladders](https://leetcode.com/problems/snakes-and-ladders/)
 - [207. Course Schedule](https://leetcode.com/problems/course-schedule/) ✅✅
@@ -18,4 +18,4 @@
 - [127. Word Ladder](https://leetcode.com/problems/word-ladder/) ✅✅
 - [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)
 - [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) ✅
-- [827. Making a Large Island](https://leetcode.com/problems/making-a-large-island/)
+- [827. Making a Large Island](https://leetcode.com/problems/making-a-large-island/) ✅
