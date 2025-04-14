@@ -53,4 +53,4 @@ if __name__ == "__main__":
     start = time.time()
     countingsort(arr)
     print(time.time() - start, "seconds")
-    print(arr[:5])
+    print(arr)

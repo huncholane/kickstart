@@ -23,23 +23,22 @@ func countingsort(arr []int) {
 	}
 	k:=high-low
 
-	// init aux count array
-	aux:=make([]int,k+1)
+	// init counts count array
+	counts:=make([]int,k+1)
 	for i:=range n {
-		aux[arr[i]]+=1
+		counts[arr[i]]+=1
 	}
 
 	// cummulate the sums to index correctly
 	for i:=1;i<k+1;i++ {
-		aux[i]+=aux[i-1]
+		counts[i]+=counts[i-1]
 	}
 
 	// store output in reverse order and store into original array
 	output:=make([]int,n)
 	for i:=n-1;i>=0;i-- {
-		output[aux[arr[i]]-1]=arr[i]
-		aux[arr[i]]-=1
-		i-=1
+		output[counts[arr[i]]-1]=arr[i]
+		counts[arr[i]]-=1
 	}
 	copy(arr,output)
 
