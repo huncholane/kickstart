@@ -16,7 +16,7 @@ type Result struct {
 
 func main() {
 	var results []Result
-	n:=100000
+	n:=100000000
 	l:=n/2-n
 	r:=n/2
 	fmt.Printf("Comparing Algos with n=%d [%d, %d]\n",n,l,r)
