@@ -1,0 +1,19 @@
+[env]
+# BUBBLE="ON"
+# INSERTION="ON"
+# HEAP="ON"
+HOARE="ON"
+# LOMUTO="ON"
+MERGE="ON"
+# COUNTING="ON"
+STABLE="ON"
+UNSTABLE="ON"
+# SELECTION="ON"
+# RADIX="ON"
+DEFAULT_TEST_N="50000"
+DEFAULT_DEBUG_N="5"
+TEST_COUNT="5"
+
+[alias]
+r = "run -- "
+rr = "run --release -- "
