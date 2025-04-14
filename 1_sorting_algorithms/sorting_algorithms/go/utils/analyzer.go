@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"context"
 	"fmt"
 	"reflect"
 	"runtime"
@@ -25,7 +26,26 @@ func (a *Analyzer) TimeIt(arr[]int,print bool) time.Duration {
 		fmt.Printf("%s took %v, Successful sort: %v\n",a.Name,t,DidSort(arr))
 	}
 	return t
+}
 
+// Times an algorithm on an array given context so it can stop
+//	- ctx: Context
+//	- arr: The array to sort
+func (a *Analyzer) AsyncTimeIt(ctx context.Context,arr[]int) time.Duration {
+	start:=time.Now()
+
+	done:=make(chan time.Duration,1)
+	go func() {
+		a.f(arr)
+		close(done)
+	}()
+
+	select {
+	case<-ctx.Done():
+		return -1
+	case<-done:
+		return time.Since(start)
+	}
 }
 
 // Describes an algorithm based on the given test config
