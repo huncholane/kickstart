@@ -9,24 +9,30 @@ import (
 
 type Analyzer struct {
 	f func([]int)
+	Name string
 }
 
 func NewAnalyzer(f func([]int)) *Analyzer {
-	return &Analyzer{f}
+	name:=runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
+	return &Analyzer{f,name}
 }
 
-func (a *Analyzer) TimeIt(arr[]int) {
-	name:=runtime.FuncForPC(reflect.ValueOf(a.f).Pointer()).Name()
+func (a *Analyzer) TimeIt(arr[]int,print bool) time.Duration {
 	start:=time.Now()
 	a.f(arr)
-	fmt.Printf("%s took %v, Successful sort: %v\n",name,time.Since(start),DidSort(arr))
+	t:=time.Since(start)
+	if print {
+		fmt.Printf("%s took %v, Successful sort: %v\n",a.Name,t,DidSort(arr))
+	}
+	return t
+
 }
 
 // Describes an algorithm based on the given test config
 func (a*Analyzer) Describe(t Test) {
 	arr:=CreateArr(t.size,t.left,t.right)
 	fmt.Printf("Before sorting: %v\n",arr)
-	a.TimeIt(arr)
+	a.TimeIt(arr,true)
 	fmt.Printf("After sorting: %v\n",arr)
 	fmt.Printf("Passed %v of %v tests\n",t.Run(),t.numTests)
 }

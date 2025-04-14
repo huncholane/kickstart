@@ -13,7 +13,7 @@ type Test struct {
 //   - Range: -100 to 100
 //   - Size: 100
 func DefaultTest(f func([]int)) *Test {
-	return &Test{numTests:10,size:100,left:-100,right:100}
+	return &Test{f:f,numTests:10,size:100,left:-100,right:100}
 }
 
 // Run tests using the test config

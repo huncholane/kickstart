@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	utils.NewAnalyzer(algos.Mergesort)
+	utils.NewAnalyzer(algos.Mergesort).DescribeTiny()
 }

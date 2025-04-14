@@ -1,6 +1,9 @@
 package algos
 
 func CountingSort(arr []int) {
+	if len(arr)==0 {
+		return
+	}
 	low:=arr[0]
 	high:=arr[0]
 	n:=len(arr)
