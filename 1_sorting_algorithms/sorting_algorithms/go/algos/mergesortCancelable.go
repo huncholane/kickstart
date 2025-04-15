@@ -1,6 +1,9 @@
 package algos
 
-import "context"
+import (
+	"context"
+	"sortingalgos/utils"
+)
 
 // Mergesort helper that enables timeout
 func helperCancelable(ctx context.Context,arr []int,l int, r int) {
@@ -8,26 +11,14 @@ func helperCancelable(ctx context.Context,arr []int,l int, r int) {
 		return
 	}
 	mid:=l+(r-l)/2
-	select {
-	case <-ctx.Done():
-		return
-	default:
-	}
+	if utils.Cancelled(ctx) {return}
 	helperCancelable(ctx,arr,l,mid)
-	select {
-	case <-ctx.Done():
-		return
-	default:
-	}
+	if utils.Cancelled(ctx) {return}
 	helperCancelable(ctx,arr,mid+1,r)
 	var i,j=l,mid+1
 	aux:=make([]int,0,r-l+1)
 	for i<=mid && j<=r {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-		}
+		if utils.Cancelled(ctx) {return}
 		if arr[i]<=arr[j] {
 			aux=append(aux,arr[i])
 			i++
@@ -37,28 +28,16 @@ func helperCancelable(ctx context.Context,arr []int,l int, r int) {
 		}
 	}
 	for i<=mid {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-		}
+		if utils.Cancelled(ctx) {return}
 		aux=append(aux,arr[i])
 		i++
 	}
 	for j<=r {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-		}
+		if utils.Cancelled(ctx) {return}
 		aux=append(aux,arr[j])
 		j++
 	}
-	select {
-	case <-ctx.Done():
-		return
-	default:
-	}
+	if utils.Cancelled(ctx) {return}
 	copy(arr[l:r+1],aux)
 }
 
