@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"sort"
 	"sortingalgos/algos"
@@ -21,29 +20,43 @@ func main() {
 	r:=n/2
 	fmt.Printf("Comparing Algos with n=%d [%d, %d]\n",n,l,r)
 	arr:=utils.CreateArr(n,l,r)
-	timeout:=1000*time.Millisecond
+	timeout:=10*time.Millisecond
 	funcs:=[]func([]int){
 		algos.Mergesort,
 		algos.CountingSort,
 		sort.Ints,
 	}
+
 	for _, f := range funcs {
+		// Make a copy of the array so each analyzer uses the same data
 		tmp:=make([]int, len(arr))
 		copy(tmp,arr)
+
+		// Initialize the analyzer
 		a:=utils.NewAnalyzer(f)
 
-		ctx,cancel:=context.WithTimeout(context.Background(),timeout)
-		defer cancel()
-		d:=a.AsyncTimeIt(ctx,tmp)
-		if d<0{
-			fmt.Printf("%s timed out\n",a.Name)
-			d=timeout
+		// Make a channel to store the result
+		done:=make(chan Result)
+		go func() {
+			d:=a.TimeIt(tmp,false)
+			done<-Result{Dur:d,Name:a.Name}
+		}()
+
+		// Save results
+		select {
+		case <-time.After(timeout):
+			results=append(results,Result{Dur:timeout,Name:a.Name})
+		case res:=<-done:
+			results = append(results, res)
 		}
-		results=append(results,Result{Name:a.Name,Dur:d})
 	}
+
+	// Sort the results
 	sort.Slice(results,func(i,j int) bool {
 		return results[i].Dur<results[j].Dur
 	})
+
+	// Print the results
 	for i,res:=range results {
 		if res.Dur==timeout {
 			fmt.Printf("❌ %v timed out\n",res.Name)

@@ -22,3 +22,10 @@ func CreateArr(size int,left int,right int) []int {
 	return arr
 }
 
+// Creates a symetric array of random values just given size
+func CreateSymetricArr(size int) []int{
+	l:=size/2-size
+	r:=size/2
+	return CreateArr(size,l,r)
+}
+
