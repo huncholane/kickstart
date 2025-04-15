@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"context"
 	"math/rand"
 )
 
@@ -29,3 +30,12 @@ func CreateSymetricArr(size int) []int{
 	return CreateArr(size,l,r)
 }
 
+// Checks if context is cancelled
+func Cancelled(ctx context.Context) bool {
+	select {
+	case <-ctx.Done():
+		return true
+	default:
+		return false
+	}
+}

@@ -1,7 +1,10 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"reflect"
+	"runtime"
 	"sort"
 	"sortingalgos/algos"
 	"sortingalgos/utils"
@@ -15,16 +18,14 @@ type Result struct {
 
 func main() {
 	var results []Result
-	n:=100000000
+	n:=1000000000
 	l:=n/2-n
 	r:=n/2
 	fmt.Printf("Comparing Algos with n=%d [%d, %d]\n",n,l,r)
 	arr:=utils.CreateArr(n,l,r)
 	timeout:=10*time.Millisecond
-	funcs:=[]func([]int){
-		algos.Mergesort,
-		algos.CountingSort,
-		sort.Ints,
+	funcs:=[]func(context.Context,[]int){
+		algos.MergesortCancelable,
 	}
 
 	for _, f := range funcs {
@@ -32,22 +33,18 @@ func main() {
 		tmp:=make([]int, len(arr))
 		copy(tmp,arr)
 
-		// Initialize the analyzer
-		a:=utils.NewAnalyzer(f)
+		name:=runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
 
-		// Make a channel to store the result
-		done:=make(chan Result)
-		go func() {
-			d:=a.TimeIt(tmp,false)
-			done<-Result{Dur:d,Name:a.Name}
-		}()
-
-		// Save results
-		select {
-		case <-time.After(timeout):
-			results=append(results,Result{Dur:timeout,Name:a.Name})
-		case res:=<-done:
-			results = append(results, res)
+		ctx,cancel:=context.WithTimeout(context.Background(),timeout)
+		defer cancel()
+		
+		start:=time.Now()
+		f(ctx,arr)		
+		dur:=time.Since(start)
+		if ctx.Err() !=nil {
+			fmt.Println("❌",name,"timed out")
+		} else {
+			results=append(results,Result{Dur:dur,Name:name})
 		}
 	}
 
@@ -58,10 +55,6 @@ func main() {
 
 	// Print the results
 	for i,res:=range results {
-		if res.Dur==timeout {
-			fmt.Printf("❌ %v timed out\n",res.Name)
-			continue
-		}
 		switch i {
 		case 0:
 			fmt.Printf("🥇 %v %v\n",res.Dur,res.Name)

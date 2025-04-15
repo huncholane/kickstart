@@ -4,17 +4,21 @@ import "context"
 
 // Mergesort helper that enables timeout
 func helperCancelable(ctx context.Context,arr []int,l int, r int) {
-	// Return early if the 
+	if l>=r {
+		return
+	}
+	mid:=l+(r-l)/2
 	select {
 	case <-ctx.Done():
 		return
 	default:
 	}
-	if l>=r {
-		return
-	}
-	mid:=l+(r-l)/2
 	helperCancelable(ctx,arr,l,mid)
+	select {
+	case <-ctx.Done():
+		return
+	default:
+	}
 	helperCancelable(ctx,arr,mid+1,r)
 	var i,j=l,mid+1
 	aux:=make([]int,0,r-l+1)
@@ -49,6 +53,11 @@ func helperCancelable(ctx context.Context,arr []int,l int, r int) {
 		}
 		aux=append(aux,arr[j])
 		j++
+	}
+	select {
+	case <-ctx.Done():
+		return
+	default:
 	}
 	copy(arr[l:r+1],aux)
 }
