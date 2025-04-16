@@ -52,3 +52,18 @@ Return the left and right indexes
   - Uses auxilliary space
   - Stable
   - O(nlogn) gauranteed
+
+## 3Sum Template
+
+```
+presort
+for m in [0,n-1]:
+  i,j=0,m-1
+  while i<j:
+    if sum==target:
+      return true
+    else if sum>target:
+      i++
+    else:
+      j--
+```

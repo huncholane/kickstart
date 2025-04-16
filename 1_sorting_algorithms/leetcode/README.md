@@ -16,3 +16,5 @@
 - [252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) ✅
 - [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) ✅
 - [1213. Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/) ✅
+- [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/) ✅
+- [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
