@@ -6,7 +6,7 @@
 - [703. Kth largest element in a stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) ✅
 - [2164. Sort Even and Odd Indices Independently](https://leetcode.com/problems/sort-even-and-odd-indices-independently/) ✅
 - [75. Sort Colors](https://leetcode.com/problems/sort-colors/) ✅
-- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) ✅
+- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) ✅✅
 - [15. 3Sum](https://leetcode.com/problems/3sum/) ✅
 - [18. 4Sum](https://leetcode.com/problems/4sum/) ✅
 - [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) ✅
@@ -18,3 +18,4 @@
 - [1213. Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/) ✅
 - [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/) ✅
 - [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/) ✅
+- [923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/) ✅
