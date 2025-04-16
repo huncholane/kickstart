@@ -92,6 +92,8 @@ func partition3(arr[]int,l,r int) (int,int){
 	return i,k
 }
 
+// Quicksort3 sorts in place using a three way partition
+// to build a wall. It helps fight against repetitive numbers
 func Quicksort3(arr[]int) {
 	n:=len(arr)
 	stack:=[]pair{{l:0,r:n-1}}
