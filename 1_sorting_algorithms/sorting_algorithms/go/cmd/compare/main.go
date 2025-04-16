@@ -19,7 +19,7 @@ type Result struct {
 func main() {
 	var results []Result
 	n:=1000000
-	l:=n/2-n
+	l:=-n/2
 	r:=n/2
 	timeout:=500*time.Millisecond
 	fmt.Printf("Comparing Algos with n=%d [%d, %d] and a timeout of %v\n",n,l,r,timeout)
@@ -29,6 +29,9 @@ func main() {
 		cancelable.Mergesort,
 		cancelable.CountingSort,
 		cancelable.Pdqsort,
+		cancelable.Quicksort3,
+		cancelable.Hoaresort,
+		cancelable.Lomutosort,
 	}
 
 	for _, f := range funcs {
