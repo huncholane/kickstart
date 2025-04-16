@@ -6,18 +6,18 @@
 
 ## Solution 1
 
-1. Gather even and odd indices into two arrays
+- Gather even and odd indices into two arrays
+  - O(n)
+- Sort evens increasing
+  - O(nlogn)
+- Sort odds decreasing
+  - O(nlogn)
+- Merge into result
+  - t O(n)
 
-- O(n)
+## Solution 2 - Heaps
 
-2. Sort evens increasing
-
-- O(nlogn)
-
-3. Sort odds decreasing
-
-- O(nlogn)
-
-4. Merge into resul
-
-- t O(n)
+- Store even numbers into a min heap and odd numbers into a max heap (negative minheap)
+  - O(nlogn)
+- Replace each value in the original array by popping even and odd while incrementing after each pop
+  - O(nlogn)
