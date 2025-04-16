@@ -76,3 +76,24 @@ func (a*Analyzer) DescribeTiny() {
 func (a *Analyzer) DefaultTest() {
 	DefaultTest(a.f).Run()
 }
+
+func TimeCancelable(ctx context.Context, f func(context.Context,[]int),arr []int) time.Duration {
+	start:=time.Now()
+	f(ctx,arr)
+	return time.Since(start)
+}
+
+// This does general analysis on a cancelable algorithm
+// 	- Runs the algorithm with a small array
+// 	- Prints the name, time it took for the small array 
+// 	- Then runs tests and prints number passed
+func GeneralAnalysisOnCancelable(ctx context.Context,f func(context.Context,[]int)) {
+	name:=runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
+	fmt.Println("Running general analysis for",name)
+	arr:=CreateSymetricArr(10)
+	fmt.Println("Before sorting:",arr)
+	f(ctx,arr)
+	fmt.Println(" After sorting:",arr)
+	successfulCount:=TestCancelable(f,100,10,10000,1*time.Millisecond)
+	fmt.Println(successfulCount,"of",100,"passed")
+}

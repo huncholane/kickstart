@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"sortingalgos/algos"
-	"sortingalgos/utils"
+	"sortingalgos/src/algos"
+	"sortingalgos/src/utils"
 	"time"
 )
 

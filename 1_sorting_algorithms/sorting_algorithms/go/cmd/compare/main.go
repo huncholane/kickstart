@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"runtime"
 	"sort"
-	"sortingalgos/algos"
-	"sortingalgos/utils"
+	"sortingalgos/internal/cancelable"
+	"sortingalgos/internal/utils"
 	"time"
 )
 
@@ -18,14 +18,17 @@ type Result struct {
 
 func main() {
 	var results []Result
-	n:=1000000000
+	n:=1000000
 	l:=n/2-n
 	r:=n/2
-	fmt.Printf("Comparing Algos with n=%d [%d, %d]\n",n,l,r)
+	timeout:=500*time.Millisecond
+	fmt.Printf("Comparing Algos with n=%d [%d, %d] and a timeout of %v\n",n,l,r,timeout)
 	arr:=utils.CreateArr(n,l,r)
-	timeout:=10*time.Millisecond
+	fmt.Println("Created test array")
 	funcs:=[]func(context.Context,[]int){
-		algos.MergesortCancelable,
+		cancelable.Mergesort,
+		cancelable.CountingSort,
+		cancelable.Pdqsort,
 	}
 
 	for _, f := range funcs {
@@ -34,6 +37,7 @@ func main() {
 		copy(tmp,arr)
 
 		name:=runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
+		fmt.Println("Copied test array for",name)
 
 		ctx,cancel:=context.WithTimeout(context.Background(),timeout)
 		defer cancel()
@@ -47,6 +51,8 @@ func main() {
 			results=append(results,Result{Dur:dur,Name:name})
 		}
 	}
+
+	fmt.Println()
 
 	// Sort the results
 	sort.Slice(results,func(i,j int) bool {

@@ -1,20 +1,20 @@
-package algos
+package cancelable
 
 import (
 	"context"
-	"sortingalgos/utils"
+	"sortingalgos/internal/utils"
 )
 
 // Mergesort helper that enables timeout
-func helperCancelable(ctx context.Context,arr []int,l int, r int) {
+func helper(ctx context.Context,arr []int,l int, r int) {
 	if l>=r {
 		return
 	}
 	mid:=l+(r-l)/2
 	if utils.Cancelled(ctx) {return}
-	helperCancelable(ctx,arr,l,mid)
+	helper(ctx,arr,l,mid)
 	if utils.Cancelled(ctx) {return}
-	helperCancelable(ctx,arr,mid+1,r)
+	helper(ctx,arr,mid+1,r)
 	var i,j=l,mid+1
 	aux:=make([]int,0,r-l+1)
 	for i<=mid && j<=r {
@@ -42,9 +42,9 @@ func helperCancelable(ctx context.Context,arr []int,l int, r int) {
 }
 
 // Mergesort that can be canceled
-func MergesortCancelable(ctx context.Context,arr []int) {
+func Mergesort(ctx context.Context,arr []int) {
 	if len(arr)==0 {
 		return
 	}
-	helperCancelable(ctx,arr,0,len(arr)-1)
+	helper(ctx,arr,0,len(arr)-1)
 }
