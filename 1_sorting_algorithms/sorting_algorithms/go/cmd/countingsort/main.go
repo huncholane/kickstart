@@ -1,10 +1,10 @@
 package main
 
 import (
-	"sortingalgos/algos"
-	"sortingalgos/utils"
+	"sortingalgos/internal/algos"
+	"sortingalgos/internal/utils"
 )
 
 func main() {
-	utils.NewAnalyzer(algos.CountingSort).DescribeTiny()
+	utils.GeneralAnalysis(algos.CountingSort)
 }

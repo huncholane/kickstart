@@ -5,36 +5,23 @@ import (
 	"time"
 )
 
-type Test struct {
-	f func([]int)
-	numTests int
-	size int
-	left int
-	right int
-}
-
-// DefaultTest initializes a Test with:
-//   - 10 tests
-//   - Range: -100 to 100
-//   - Size: 100
-func DefaultTest(f func([]int)) *Test {
-	return &Test{f:f,numTests:10,size:100,left:-100,right:100}
-}
-
-// Run tests using the test config
-func (t *Test) Run() int {
-	passed:=0
-	for range t.numTests {
-		arr:=CreateArr(t.size,t.left,t.right)
-		t.f(arr)
+// Test tests an algorithm
+//	- f: The algorithm to test
+//	- arrSize: Size of the arrays
+//	- testCount: How many tests to perform
+func Test(f func([]int),arrSize,testCount int) int {
+	successCount:=0
+	for range testCount {
+		arr:=CreateSymetricArr(arrSize)
+		f(arr)
 		if DidSort(arr) {
-			passed+=1
+			successCount+=1
 		}
 	}
-	return passed
+	return successCount
 }
 
-// Test a cancelable version runs the number of tests-1 and 
+// TestCancelable tests a cancelable version runs the number of tests-1 and 
 // checks if the function is cancelable
 //	- f [func(context.Context,[]int)]: The cancelable algorithm to test
 //	- arrSize [int]: Size of the arrays

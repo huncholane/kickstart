@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	utils.NewAnalyzer(algos.Pdqsort).DescribeTiny()
+	utils.GeneralAnalysis(algos.Pdqsort)
 }
