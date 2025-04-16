@@ -5,54 +5,39 @@ import (
 	"sortingalgos/internal/utils"
 )
 
-func CountingSort(ctx context.Context,arr []int) {
-	if len(arr)==0 {
+func CountingSort(ctx context.Context, arr []int) {
+	if len(arr) == 0 {
 		return
 	}
-	low:=arr[0]
-	high:=arr[0]
-	n:=len(arr)
-	for i:=range n {
-		if utils.Cancelled(ctx) {return}
-		if arr[i]<low {
-			low = arr[i]
-		} else if arr[i]>high {
-			high=arr[i]
+	low, high := arr[0], arr[0]
+	for _, x := range arr {
+		if utils.Cancelled(ctx) {
+			return
+		}
+		if x < low {
+			low = x
+		} else if x > high {
+			high = x
 		}
 	}
 
-	// make array start from 0
-	for i:=range n {
-		if utils.Cancelled(ctx) {return}
-		arr[i]-=low
-	}
-	k:=high-low
-
-	// init counts count array
-	counts:=make([]int,k+1)
-	for i:=range n {
-		if utils.Cancelled(ctx) {return}
-		counts[arr[i]]+=1
+	k := high - low + 1
+	counts := make([]int, k)
+	for _, x := range arr {
+		if utils.Cancelled(ctx) {
+			return
+		}
+		counts[x-low]++
 	}
 
-	// cummulate the sums to index correctly
-	for i:=1;i<k+1;i++ {
-		if utils.Cancelled(ctx) {return}
-		counts[i]+=counts[i-1]
-	}
-
-	// store output in reverse order and store into original array
-	output:=make([]int,n)
-	for i:=n-1;i>=0;i-- {
-		if utils.Cancelled(ctx) {return}
-		output[counts[arr[i]]-1]=arr[i]
-		counts[arr[i]]-=1
-	}
-	copy(arr,output)
-
-	// fix the array from the start
-	for i:=range n {
-		if utils.Cancelled(ctx) {return}
-		arr[i]+=low
+	i := 0
+	for v, c := range counts {
+		if utils.Cancelled(ctx) {
+			return
+		}
+		for j := 0; j < c; j++ {
+			arr[i] = v + low
+			i++
+		}
 	}
 }
