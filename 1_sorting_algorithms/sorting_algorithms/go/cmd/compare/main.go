@@ -21,7 +21,6 @@ func main() {
 	n:=1000000
 	l:=-n/2
 	r:=n/2
-	l,r=0,10
 	timeout:=500*time.Millisecond
 	fmt.Printf("Comparing Algos with n=%d [%d, %d] and a timeout of %v\n",n,l,r,timeout)
 	arr:=utils.CreateArr(n,l,r)
