@@ -40,12 +40,7 @@ func Lomutosort(arr[]int) {
 }
 
 func hoarePartition(arr[]int,l,r int) int {
-	var pivot int
-	if r-l==1 {
-		pivot=arr[l]
-	} else {
-		pivot=arr[rand.Intn(r-l-1)+l]
-	}
+	pivot:=arr[rand.Intn(r-l)+l]
 	i,j:=l-1,r+1
 	for {
 		i++
@@ -80,8 +75,7 @@ func Hoaresort(arr[]int) {
 }
 
 func partition3(arr[]int,l,r int) (int,int){
-	// pivot:=arr[rand.Intn(r-l)+l]
-	pivot:=arr[l+(r-l)/2]
+	pivot:=arr[rand.Intn(r-l+1)+l]
 	i,j,k:=l,l,r
 	for j<=k {
 		if arr[j]<pivot {
@@ -100,8 +94,7 @@ func partition3(arr[]int,l,r int) (int,int){
 
 func Quicksort3(arr[]int) {
 	n:=len(arr)
-	stack:=make([]pair,0,n)
-	stack=append(stack,pair{l:0,r:n-1})
+	stack:=[]pair{{l:0,r:n-1}}
 	for len(stack)>0 {
 		n=len(stack)
 		p:=stack[n-1]

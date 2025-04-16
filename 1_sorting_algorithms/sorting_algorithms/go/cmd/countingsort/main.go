@@ -8,6 +8,6 @@ import (
 )
 
 func main() {
-	utils.GeneralAnalysis(algos.CountingSort)
+	utils.GeneralAnalysis(algos.Countingsort)
 	utils.GeneralAnalysisOnCancelable(context.Background(),cancelable.CountingSort)
 }

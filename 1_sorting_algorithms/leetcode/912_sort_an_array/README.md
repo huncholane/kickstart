@@ -9,3 +9,5 @@
 
 - Use quicksort
 - Use 3 way partitioning to fight repetitive numbers
+
+## Solution 2 - Hoare's Quicksort

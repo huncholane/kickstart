@@ -1,47 +1,28 @@
 package algos
 
-func CountingSort(arr []int) {
-	if len(arr)==0 {
-		return
-	}
-	low:=arr[0]
-	high:=arr[0]
-	n:=len(arr)
-	for i:=range n {
-		if arr[i]<low {
-			low = arr[i]
-		} else if arr[i]>high {
-			high=arr[i]
-		}
-	}
+func Countingsort(nums []int) {
+    // counting sort
+    min, max := nums[0], nums[0]
+    for _, num := range nums {
+        if num < min {
+            min = num
+        }
+        if num > max {
+            max = num
+        }
+    }
 
-	// make array start from 0
-	for i:=range n {
-		arr[i]-=low
-	}
-	k:=high-low
+    count := make([]int, max - min + 1)
+    for _, num := range nums {
+        count[num-min]++
+    }
 
-	// init counts count array
-	counts:=make([]int,k+1)
-	for i:=range n {
-		counts[arr[i]]+=1
-	}
-
-	// cummulate the sums to index correctly
-	for i:=1;i<k+1;i++ {
-		counts[i]+=counts[i-1]
-	}
-
-	// store output in reverse order and store into original array
-	output:=make([]int,n)
-	for i:=n-1;i>=0;i-- {
-		output[counts[arr[i]]-1]=arr[i]
-		counts[arr[i]]-=1
-	}
-	copy(arr,output)
-
-	// fix the array from the start
-	for i:=range n {
-		arr[i]+=low
-	}
+    k := 0
+    for i:=range len(count) {
+        for count[i] > 0 {
+            nums[k] = i + min
+            k++
+            count[i]--
+        }
+    }
 }
