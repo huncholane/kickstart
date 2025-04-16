@@ -10,11 +10,11 @@
 - [15. 3Sum](https://leetcode.com/problems/3sum/) ✅
 - [18. 4Sum](https://leetcode.com/problems/4sum/) ✅
 - [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) ✅
-- [259. 3Sum Smaller](https://leetcode.com/problems/3sum-smaller/) ❌
+- [259. 3Sum Smaller](https://leetcode.com/problems/3sum-smaller/) ✅
 - [1. Two Sum](https://leetcode.com/problems/two-sum/) ✅
 - [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) ✅
 - [252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) ✅
 - [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) ✅
 - [1213. Intersection of Three Sorted Arrays](https://leetcode.com/problems/intersection-of-three-sorted-arrays/) ✅
 - [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/) ✅
-- [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+- [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/) ✅
