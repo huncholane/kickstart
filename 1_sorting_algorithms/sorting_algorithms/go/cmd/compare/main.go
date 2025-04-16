@@ -32,6 +32,7 @@ func main() {
 		cancelable.Quicksort3,
 		cancelable.Hoaresort,
 		cancelable.Lomutosort,
+		cancelable.Heapsort,
 	}
 
 	for _, f := range funcs {
