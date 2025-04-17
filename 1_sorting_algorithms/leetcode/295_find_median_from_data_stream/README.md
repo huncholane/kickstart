@@ -8,7 +8,7 @@
 
 - Intialize with a min heap and a max heap (-min heap)
 - Update the heaps on each add making sure they stay within a difference of 1 or 0
-- Add to minheap when the value is greater than the smallest item on the minheap
+- Add to minheap when the value is greater than the smallest item on the minheap; vice versa
 - Swap the middle values when they get too far apart
 - Return the minheap root or the maxheap root if one has more items
 - Return the median of the roots if they have the same length

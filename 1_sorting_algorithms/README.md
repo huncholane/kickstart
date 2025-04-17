@@ -67,3 +67,18 @@ for m in [0,n-1]:
     else:
       j--
 ```
+
+## Interval Template
+
+```
+presort intervals
+for i in [0,n-1]:
+  if i==n-1:
+    nextstart='inf'
+  else:
+    nextstart=intervals[i+1][0]
+  // Start the interval
+  add end to priority queue (minheap)
+  // End the intervals
+  remove all the intervals from the priority queue that are before next start
+```
