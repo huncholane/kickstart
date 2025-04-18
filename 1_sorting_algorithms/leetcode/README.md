@@ -22,3 +22,4 @@
 - [295. Find Median From Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) ✅
 - [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) ✅
 - [1094. Car Pooling](https://leetcode.com/problems/car-pooling/description/) ✅
+- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/) ✅
