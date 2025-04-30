@@ -32,7 +32,7 @@ def fib(n):
 ## Bottom Up Tabulation
 
 - Recursion tree turns into a dependency graph
-  ![Dependency Graph](./images/dependency-graph.png)
+  ![Dependency Graph](./images/dependency-graph.jpeg)
 - Directed acyclic graph (DAG)
   - Topological Sort
   - Calculate values of f in top sort order
@@ -66,3 +66,27 @@ def fib(n):
 
 - Counting problem &rarr; Recurrence equation &rarr; Bottom-up implementation
 - Max steps at a time is 2. How many ways to climb the stairs?
+
+### Decrease and Conquer
+
+![Climbing Stairs](./images/climbing-stairs.jpeg)
+
+```text
+def f(n):
+    if n==1: return 1
+    if n==2 return 2
+    table = array of size n+1
+    for i in range [3,n]:
+        table[i] = table[i-1]+table[i-2]
+    return table[n]
+```
+
+- Can apply similar optimization
+
+```text
+def f(n):
+    a,b=1,2
+    for i in range [3,n]:
+        a,b=b,a+b
+    return b
+```
