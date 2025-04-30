@@ -74,7 +74,7 @@ def fib(n):
 ```text
 def f(n):
     if n==1: return 1
-    if n==2 return 2
+    if n==2: return 2
     table = array of size n+1
     for i in range [3,n]:
         table[i] = table[i-1]+table[i-2]
@@ -85,6 +85,8 @@ def f(n):
 
 ```text
 def f(n):
+    if n==1: return 1
+    if n==2: return 2
     a,b=1,2
     for i in range [3,n]:
         a,b=b,a+b
