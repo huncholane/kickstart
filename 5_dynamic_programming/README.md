@@ -64,4 +64,5 @@ def fib(n):
 
 ## Climbing n Stairs
 
-- Counting problem &rarr Recurrence equation &rarr Bottom-up implementation
+- Counting problem &rarr; Recurrence equation &rarr; Bottom-up implementation
+- Max steps at a time is 2. How many ways to climb the stairs?
