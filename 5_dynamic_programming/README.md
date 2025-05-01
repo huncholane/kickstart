@@ -288,12 +288,9 @@ Example paths:
 - Psuedocode
 
 ```text
-def mincost(n,costarray):
-   table = 1d array of size n+2
-   table[0] = 0
-   table[1] = costarray[0]
-   costarray.append(0)
-   for i in 2 to n+1:
-      table[i] = costarray[i-1] + min(table[i-1], table[i-2])
-   return table[n+1]
+def mincost(cost):
+   cost.append(0)
+   for i in range(2,len(cost)):
+      cost[i]+=min(cost[i-1],cost[i-2])
+   return cost[-1]
 ```
