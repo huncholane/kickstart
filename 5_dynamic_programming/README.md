@@ -8,7 +8,11 @@
 - Not actually dynamic, programming meant something else then
 - Recursion without repitition
 
-## Top Down Memoization
+## Counting Problems
+
+### Fibonacci
+
+#### Top Down Memoization
 
 ![Top Down Memo](./images/top-down-memo.jpg)
 
@@ -29,7 +33,7 @@ def fib(n):
 
 - Less time, more space
 
-## Bottom Up Tabulation
+#### Bottom Up Tabulation
 
 - Recursion tree turns into a dependency graph
   ![Dependency Graph](./images/dependency-graph.jpeg)
@@ -62,12 +66,12 @@ def fib(n):
     return table[n%3]
 ```
 
-## Climbing n Stairs
+### Climbing n Stairs
 
 - Counting problem &rarr; Recurrence equation &rarr; Bottom-up implementation
 - Max steps at a time is 2. How many ways to climb the stairs?
 
-### Decrease and Conquer
+#### Decrease and Conquer
 
 ![Climbing Stairs](./images/climbing-stairs.jpeg)
 
@@ -93,7 +97,7 @@ def f(n):
     return b
 ```
 
-## Counting Subsets of Size k
+### Counting Subsets of Size k
 
 - n choose k
 - c(n,k) = c(n-1,k)+c(n-1,k-1)
@@ -150,7 +154,7 @@ def c(n,k):
 - T(n) = O(nk)
 - Can optimize space complexity by only using current row and previous row
 
-## Count Unique Paths
+### Count Unique Paths
 
 - How many paths to reach the bottom-right corner in a 2d grid
 
@@ -180,3 +184,7 @@ def f(m,n):
 - T(m,n) = O(mn)
 - S(m,n) = O(mn)
 - Can optimize space complexity to **O(n) OR O(m)** with current and previous row instead of 2d grid
+
+## Optimization Problems
+
+### Maximum Path Sum
