@@ -47,7 +47,7 @@ def fib(n):
    table = new array of size n+1
    table[0] = 0
    table[1] = 1
-   for i in range [2,n]:
+   for i in range 2 to n:
       table[i] = table[i-1]+table[i-2]
    return table[n]
 ```
@@ -294,3 +294,42 @@ def mincost(cost):
       cost[i]+=min(cost[i-1],cost[i-2])
    return cost[-1]
 ```
+
+### Coin Change
+
+- Return fewest number of coins to make an amount
+- Minimization/optimization problem &rarr; dynamic programming
+
+  - Greedy strategy will not work for example
+
+  ```text
+  options = [1,5,7], target = 10
+  Greedy picks 7+1+1+1 and it should be 5+5
+  ```
+
+- Correct Solution with Dynamic Programming
+
+1. Optimization Problem
+
+2. Come up with a recurrence equation (hardest part)
+
+   ```text
+   c1+c2+c3+...+ck = a
+   f(a) = fewest # coins to construct amount a.
+   coins = [c1, c2, c3, ..., ck]
+   f(a-c1)
+   f(a-c2)
+   ...
+   f(a-ck)
+
+   f(a) - min(f(a-ck))+1
+   ```
+
+   - determine **last** coin that would lead to amount a
+
+3. Identify all the subproblems
+
+   - a+1 distinct subproblems
+
+4. Identify depencies
+   - Each subproblem &rarr; vertex
