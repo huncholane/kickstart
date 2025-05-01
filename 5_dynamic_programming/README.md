@@ -23,12 +23,12 @@
 
 ```text
 def fib(n):
-    if n in memo:
-        return memo[n]
-    if n==0 or n==1: return n
-    else:
-        memo[n]=fib(n-1)+fib(n-2)
-        return memo[n]
+   if n in memo:
+      return memo[n]
+   if n==0 or n==1: return n
+   else:
+      memo[n]=fib(n-1)+fib(n-2)
+      return memo[n]
 ```
 
 - Less time, more space
@@ -44,12 +44,12 @@ def fib(n):
 
 ```text
 def fib(n):
-    table = new array of size n+1
-    table[0] = 0
-    table[1] = 1
-    for i in range [2,n]:
-        table[i] = table[i-1]+table[i-2]
-    return table[n]
+   table = new array of size n+1
+   table[0] = 0
+   table[1] = 1
+   for i in range [2,n]:
+      table[i] = table[i-1]+table[i-2]
+   return table[n]
 ```
 
 - Time complexity: O(n)
@@ -58,12 +58,12 @@ def fib(n):
 
 ```text
 def fib(n):
-    table = new array of size 3
-    table[0] = 0
-    table[1] = 1
-    for i in range [2,n]:
-        table[i%3] = table[(i-1)%3]+table[(i-2)%3]
-    return table[n%3]
+   table = new array of size 3
+   table[0] = 0
+   table[1] = 1
+   for i in range [2,n]:
+      table[i%3] = table[(i-1)%3]+table[(i-2)%3]
+   return table[n%3]
 ```
 
 ### Climbing n Stairs
@@ -77,24 +77,24 @@ def fib(n):
 
 ```text
 def f(n):
-    if n==1: return 1
-    if n==2: return 2
-    table = array of size n+1
-    for i in range [3,n]:
-        table[i] = table[i-1]+table[i-2]
-    return table[n]
+   if n==1: return 1
+   if n==2: return 2
+   table = array of size n+1
+   for i in range [3,n]:
+      table[i] = table[i-1]+table[i-2]
+   return table[n]
 ```
 
 - Can apply similar optimization
 
 ```text
 def f(n):
-    if n==1: return 1
-    if n==2: return 2
-    a,b=1,2
-    for i in range [3,n]:
-        a,b=b,a+b
-    return b
+   if n==1: return 1
+   if n==2: return 2
+   a,b=1,2
+   for i in range [3,n]:
+      a,b=b,a+b
+   return b
 ```
 
 ### Counting Subsets of Size k
@@ -105,51 +105,51 @@ def f(n):
 
 ```text
 def c(n,k):
-    if k==0 or k==n: return 1
-    table = a 2d array of size (n+1)*(k+1)
-    for row in [0, n]:
-        table[row][0] = 1
-    for col in [0, k]:
-        table[col][col] = 1
-    for row in [2, n]:
-        for col in [1, min(row, k)]:
-            up=table[row-1][col]
-            upleft=table[row-1][col-1]
-            table[row][col] = up+upleft
-    return table[n][k]
+   if k==0 or k==n: return 1
+   table = a 2d array of size (n+1)*(k+1)
+   for row in [0, n]:
+      table[row][0] = 1
+   for col in [0, k]:
+      table[col][col] = 1
+   for row in [2, n]:
+      for col in [1, min(row, k)]:
+         up=table[row-1][col]
+         upleft=table[row-1][col-1]
+         table[row][col] = up+upleft
+   return table[n][k]
 ```
 
-1.  Initialize as matrix like this
+1. Initialize as matrix like this
 
-    ```text
-    n=7,k=7
-    1 0 0 0 0 0 0
-    1 1 0 0 0 0 0
-    1 0 1 0 0 0 0
-    1 0 0 1 0 0 0
-    1 0 0 0 1 0 0
-    1 0 0 0 0 1 0
-    1 0 0 0 0 0 1
-    ```
+   ```text
+   n=7,k=7
+   1 0 0 0 0 0 0
+   1 1 0 0 0 0 0
+   1 0 1 0 0 0 0
+   1 0 0 1 0 0 0
+   1 0 0 0 1 0 0
+   1 0 0 0 0 1 0
+   1 0 0 0 0 0 1
+   ```
 
-2.  Fill in down-right (ommitted unused portion on purpose)
+2. Fill in down-right (ommitted unused portion on purpose)
 
-    ```text
-    n=0 1
-    n=1 1   1
-    n=2 1   2   1
-    n=3 1   3   3   1
-    n=4 1   4   6   4   1
-    n=5 1   5   10  10  5   1
-    n=6 1   6   15  20  15  6   1
-        k=0 k=1 k=2 k=3 k=4 k=5 k=6
-    ```
+   ```text
+   n=0 1
+   n=1 1   1
+   n=2 1   2   1
+   n=3 1   3   3   1
+   n=4 1   4   6   4   1
+   n=5 1   5   10  10  5   1
+   n=6 1   6   15  20  15  6   1
+       k=0 k=1 k=2 k=3 k=4 k=5 k=6
+   ```
 
-    **Notice**
+   **Notice**
 
-    - n choose k by going down then right
-    - Really look at the flow going down and right
-    - Think of Pascal's triangle
+   - n choose k by going down then right
+   - Really look at the flow going down and right
+   - Think of Pascal's triangle
 
 - T(n) = O(nk)
 - Can optimize space complexity by only using current row and previous row
@@ -170,15 +170,15 @@ def c(n,k):
 
 ```text
 def f(m,n):
-    table = 2d array of size m x n
-    for i in [0, m-1]:
-        table[i][0] = 1
-    for j in [0, n-1]:
-        table[0][j] = 1
-    for row in [1, m-1]:
-        for col in [1, n-1]:
-            table[row][col] = up + left
-    return table[m-1][n-1]
+   table = 2d array of size m x n
+   for i in [0, m-1]:
+      table[i][0] = 1
+   for j in [0, n-1]:
+      table[0][j] = 1
+   for row in [1, m-1]:
+      for col in [1, n-1]:
+         table[row][col] = up + left
+   return table[m-1][n-1]
 ```
 
 - T(m,n) = O(mn)
@@ -187,4 +187,41 @@ def f(m,n):
 
 ## Optimization Problems
 
+- Maximize/minimize
+
 ### Maximum Path Sum
+
+- Highest value path
+
+```text
+1 3 1
+1 5 1
+4 2 1
+```
+
+- Find highest point to reach bottom right
+- Optimal substructure: Every optimal path continues
+  - S &rarr; O &rarr; O &rarr; e
+- Initialize by getting sums for row 0 and col 0
+
+```text
+1  4  5
+2  5  1
+6  2  1
+```
+
+- Store the value of path for every point on the grid
+
+```text
+def maxpath(grid):
+   table = 2d array of size m x n (same as grid)
+   table[0][0] = grid[0][0]
+   for j in 1 to n-1:
+      table[0][j] = table[0][j-1]+grid[0][j]
+   for i in 1 to m-1:
+      table[i][0] = table[i-1]+grid[i][0]
+   for row in 1 to m-1:
+      for col in 1 to n-1:
+         table[row][col] = grid[row][col]+max(table[row-1][col], table[row][col-1])
+   return table[m-1][n-1]
+```
