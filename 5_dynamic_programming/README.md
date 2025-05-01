@@ -202,26 +202,54 @@ def f(m,n):
 - Find highest point to reach bottom right
 - Optimal substructure: Every optimal path continues
   - S &rarr; O &rarr; O &rarr; e
-- Initialize by getting sums for row 0 and col 0
 
-```text
-1  4  5
-2  5  1
-6  2  1
-```
+1. Initialize by getting sums for row 0 and col 0 (no need for auxilliary space)
 
-- Store the value of path for every point on the grid
+   ```text
+   1  4  5
+   2  5  1
+   6  2  1
+   ```
+
+2. Add grid values + maximum of left and right
+
+   ```text
+   1  4  5
+   2  9  10
+   6  11 12
+   ```
+
+3. Run from end to start following optimal substructures
+
+   ```text
+   (3,3):12 -> (2,1):11 -> (1,1):9 -> (0,1):4 -> (0,0):1
+   ```
+
+4. Reverse the indices
+
+   ```text
+   (0,0) -> (0,1) -> (1,1) -> (2,1) -> (3,3)
+   ```
+
+- No optimized solution for this since we need to return path
 
 ```text
 def maxpath(grid):
-   table = 2d array of size m x n (same as grid)
-   table[0][0] = grid[0][0]
    for j in 1 to n-1:
-      table[0][j] = table[0][j-1]+grid[0][j]
+      grid[0][j] = grid[0][j-1]+grid[0][j]
    for i in 1 to m-1:
-      table[i][0] = table[i-1]+grid[i][0]
+      grid[i][0] = grid[i-1]+grid[i][0]
    for row in 1 to m-1:
       for col in 1 to n-1:
-         table[row][col] = grid[row][col]+max(table[row-1][col], table[row][col-1])
-   return table[m-1][n-1]
+         grid[row][col] += max(left, up)
+   i,j=m-1,n-1
+   path = []
+   while i>0 or j>0:
+      path.append((i,j))
+      if up>left:
+         i-=1
+      else:
+         j-=1
+   path.reverse()
+   return path
 ```
