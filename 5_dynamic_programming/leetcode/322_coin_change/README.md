@@ -40,7 +40,8 @@
 5. Identify the data structure (usually a table)
 
 6. Write up the DP algorithm
-    ```text 
+
+    ```text
     def coinchange(a, coins):
         table = 1d array of size (a+1)
         # Base case
