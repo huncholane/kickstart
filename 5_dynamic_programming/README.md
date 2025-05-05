@@ -333,3 +333,24 @@ def mincost(cost):
 
 4. Identify depencies
    - Each subproblem &rarr; vertex
+
+5. Identify the data structure (usually a table)
+
+6. Write up the DP algorithm
+    ```text 
+    def coinchange(a, coins):
+        table = 1d array of size (a+1)
+        # Base case
+        table[0] = 0
+        Initialize rest of the table to INF
+        for i in 1 to a:
+            # Compute and cache f(i)
+            for c in coins:
+                if i-c >= 0:
+                    table[i] = min(table[i], table[i-c])
+            table[i]++
+        return table[a]
+    ```
+
+- T(a,k) = O(ak)
+- S(a,k) = O(a)
