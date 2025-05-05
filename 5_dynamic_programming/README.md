@@ -136,7 +136,6 @@ def maxpath(grid):
    return path
 ```
 
-
 ### Coin Change
 
 - Return fewest number of coins to make an amount
