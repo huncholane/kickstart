@@ -1,14 +1,14 @@
-# [322. Coin Change]
+# [322. Coin Change](https://leetcode.com/problems/coin-change/)
 
 - Return fewest number of coins to make an amount
 - Minimization/optimization problem &rarr; dynamic programming
 
   - Greedy strategy will not work for example
 
-  ```text
-  options = [1,5,7], target = 10
-  Greedy picks 7+1+1+1 and it should be 5+5
-  ```
+   ```text
+   options = [1,5,7], target = 10
+   Greedy picks 7+1+1+1 and it should be 5+5
+   ```
 
 - Correct Solution with Dynamic Programming
 
