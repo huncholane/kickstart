@@ -16,3 +16,7 @@
 - [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/) 🔴
 - [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) 🔴
 - [790. Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling/) ✅
+- [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) 🔴
+- [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) ✅
+- [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) 🔴
+- [174. Dungeon Game](https://leetcode.com/problems/dungeon-game/) 🔴
