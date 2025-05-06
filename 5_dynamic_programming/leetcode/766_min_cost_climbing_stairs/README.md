@@ -1,4 +1,4 @@
-# [Min Cost Stair Climbing](https://leetcode.com/problems/min-cost-climbing-stairs/)
+# [766. Min Cost Stair Climbing](https://leetcode.com/problems/min-cost-climbing-stairs/)
 
 ## Solution 1 - Bottom Up Tabulation
 
