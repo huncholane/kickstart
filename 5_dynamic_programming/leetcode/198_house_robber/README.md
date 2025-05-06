@@ -5,3 +5,4 @@
 - Decision problem: Did or did not rob last house
 - Use the max of last house or 2 houses before plus the current house
 - Initialize 2 to be the max of 1 and 2 for the base case
+- f(n) = max amount of money to rob from first n houses
