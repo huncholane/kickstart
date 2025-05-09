@@ -2,6 +2,9 @@
 
 - **Maximization Problem**
 
+
+## Solution 1 - O(mn)
+
 ```text
 Two words with m and n lengths
 
@@ -29,5 +32,3 @@ a 0 1 1 1 1 1
 c 0 1 1 2 2 2
 e 0 1 1 1 1 3
 ```
-
-## Solution 1 - O(mn)
