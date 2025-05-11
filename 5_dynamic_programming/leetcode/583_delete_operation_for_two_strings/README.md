@@ -2,7 +2,7 @@
 
 - **Minimization Problem**
 
-```
+```text
   m by n table
   m+n = inserts + deletes + 2*matches + 2*mismatches
 
