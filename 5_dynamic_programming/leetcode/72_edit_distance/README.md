@@ -6,6 +6,10 @@
 f(i,j) = min cost of editing/aligning X[1...i] with Y[1...j]
 f(i,j) = min(f(i-1,j-1) + (0 if xi=yj or 1), f(i,j-1) + cost of yj, f(i-1,j) + cost of xi)
 f(m,n) = f(m-1,n-1)+f(m-1,n)+f(m,n-1)
+
+right -> insert from string 2
+down -> delete from string 1
+diag -> substitute or match
 ```
 
 - table is a 2d array of edit distance x0..xi and y0..yj

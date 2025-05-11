@@ -25,7 +25,7 @@ d 0 0 0 0 0
 o 0 0 0 1 0
 g 0 0 0 1 2
 
-ex abcde and ace
+ex abcde and ace:
     a b c d e
   0 0 0 0 0 0
 a 0 1 1 1 1 1
