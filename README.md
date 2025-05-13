@@ -10,4 +10,5 @@ If you find this useful, checkout [Interview Kickstart](https://uplevel.intervie
 2. [Recursion](./2_recursion)
 3. [Trees](./3_trees)
 4. [Graphs](./4_graphs)
+5. [Dynamic Programming](./5_dynamic_programming/)
 
