@@ -35,3 +35,4 @@
 - [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/) ✅
 - [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/) ✅✅
 - [894. All Possible Full Binary Trees](https://leetcode.com/problems/all-possible-full-binary-trees/) ✅✅
+- [241. Different Ways to Add Parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses/) ✅✅
