@@ -20,9 +20,9 @@ for folder, dirs, files in pwd.walk():
     title = None
     solution_count = 0
     for file in files:
-        m = re.search(r"\d+", file)
+        m = re.search(r"solution(\d+)", file)
         if m:
-            solution_count = max(solution_count, int(m.group()))
+            solution_count = max(solution_count, int(m.group(1)))
         if file == "README.md":
             with open(folder / file, "r") as f:
                 title = f.readline().replace("#", "-").strip()
