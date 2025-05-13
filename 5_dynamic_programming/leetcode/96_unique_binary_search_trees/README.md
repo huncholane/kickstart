@@ -1,5 +1,9 @@
 # [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)
 
+## Solution 1 - O(n2)
+
+![trees](./roots.png)
+
 ```text
 Counting Problem
 Same as well formed parenthesis problem
