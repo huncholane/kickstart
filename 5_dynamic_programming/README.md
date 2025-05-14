@@ -12,7 +12,7 @@
 
 ### Counting Subsets of Size k
 
-$\binom{n}{k} = \binom{n-1}{k} \plus \binom{n-1}{k-1}$
+$\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$
 Calculates moving down and right in a 2d matrix
 
 ```text
