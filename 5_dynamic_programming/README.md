@@ -12,9 +12,8 @@
 
 ### Counting Subsets of Size k
 
-- n choose k
-- c(n,k) = c(n-1,k)+c(n-1,k-1)
-- calculates moving down and right in a two do matrix
+$\binom{n}{k} = \binom{n-1}{k} \plus \binom{n-1}{k-1}$
+Calculates moving down and right in a 2d matrix
 
 ```text
 def c(n,k):

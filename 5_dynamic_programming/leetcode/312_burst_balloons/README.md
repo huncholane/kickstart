@@ -14,3 +14,7 @@
 ![ParseTree1](./ParseTree2.png)
 
 ![Overlap](./Overlap.png)
+
+![Subtree Substructure](./SubtreeSubstructure.png)
+
+## Solution 1
