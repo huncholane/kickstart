@@ -14,7 +14,7 @@
 
 - calculates moving down and right in a 2d matrix
 
-![CountingSubsets](./CountingSubsets.svg)
+![CountingSubsets](./CountingSubsets.png)
 
 ```text
 def c(n,k):
