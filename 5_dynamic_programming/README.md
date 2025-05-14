@@ -12,48 +12,9 @@
 
 ### Counting Subsets of Size k
 
-- $\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}$
-- $c(n,k) = c(n-1,k)+c(n-1,k-1)$
 - calculates moving down and right in a 2d matrix
 
-$$
-\binom{6}{6}
-$$
-
-$$
-\begin{array}{c|ccccccc}
-n\\
-\mathit{0}&1&0&0&0&0&0&0 \\
-1&1&1&0&0&0&0&0 \\
-2&1&0&1&0&0&0&0 \\
-3&1&0&0&1&0&0&0 \\
-4&1&0&0&0&1&0&0 \\
-5&1&0&0&0&0&1&0 \\
-6&1&0&0&0&0&0&1\\
-\hline
-k&0&1&2&3&4&5&6
-\end{array}
-\quad \rightarrow \quad
-\begin{array}{c|ccccccc}
-n\\
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
-2 & 1 & 2 & 1 & 0 & 0 & 0 & 0 \\
-3 & 1 & 3 & 3 & 1 & 0 & 0 & 0 \\
-4 & 1 & 4 & 6 & 4 & 1 & 0 & 0 \\
-5 & 1 & 5 & 10 & 10 & 5 & 1 & 0 \\
-6 & 1 & 6 & 15 & 20 & 15 & 6 & 1 \\
-\hline
-\mathit{k} & 0 & 1 & 2 & 3 & 4 & 5 & 6
-\end{array}\\
-$$
-
-$$
-\text{}\\
-\text{Examples} \\
-\text{}\\
-\binom{4}{2}=6,\binom{6}{2}=15,\binom{6}{4}=15
-$$
+![CountingSubsets](./CountingSubsets.svg)
 
 ```text
 def c(n,k):
