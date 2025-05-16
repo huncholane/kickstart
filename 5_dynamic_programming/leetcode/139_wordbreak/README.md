@@ -8,3 +8,5 @@
 - Think of it as f(n) for real. F(len(s)) will have the answer
 - Base case f(0) is True
 - Search backwards in the inner loop to make it faster
+
+![image](./139Drawing.png)
